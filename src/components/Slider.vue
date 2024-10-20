@@ -108,7 +108,7 @@ const slider = ref([
 
 const rotationY = ref(0);
 const activeIndex = ref(0);
-let intervalId: NodeJS.Timeout;
+let intervalId: "";
 
 const getFaceStyle = (index: number) => {
   const transforms = [
