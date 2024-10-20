@@ -8,14 +8,15 @@ import * as TablerIcons from "@tabler/icons-vue";
 import App from "./App.vue";
 import router from "./router";
 
-const resolveIcon = (icon: string) => {
-  return TablerIcons[icon] || icon; // Return the Tabler icon if found, otherwise fallback
-};
+function getIcon(icon: string): string {
+  return (TablerIcons as Record<string, any>)[icon] || icon;
+}
+
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
 app.use(vuetify);
-app.provide("resolveIcon", resolveIcon);
+app.config.globalProperties.$getIcon = getIcon;
 
 app.mount("#app");

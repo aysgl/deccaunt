@@ -9,8 +9,6 @@ import Navbar from "./Navbar.vue";
     <VMain app>
       <RouterView />
     </VMain>
-    <footer class="text-center py-4">
-      &copy; 2024 Deccaunt. All rights reserved.
-    </footer>
+    <footer class="py-4">&copy; 2024 Deccaunt. All rights reserved.</footer>
   </VApp>
 </template>

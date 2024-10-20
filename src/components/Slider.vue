@@ -108,19 +108,19 @@ const slider = ref([
 
 const rotationY = ref(0);
 const activeIndex = ref(0);
-let intervalId: "";
+let intervalId: number;
 
 const getFaceStyle = (index: number) => {
   const transforms = [
-    "rotateY(0deg) translateZ(150px)", // Ön
-    "rotateY(90deg) translateZ(150px)", // Sağ
-    "rotateY(180deg) translateZ(150px)", // Arka
-    "rotateY(-90deg) translateZ(150px)", // Sol
+    "rotateY(0deg) translateZ(150px)",
+    "rotateY(90deg) translateZ(150px)",
+    "rotateY(180deg) translateZ(150px)",
+    "rotateY(-90deg) translateZ(150px)",
   ];
 
   return {
     transform: transforms[index],
-    backfaceVisibility: "hidden",
+    backfaceVisibility: "hidden" as const,
   };
 };
 
@@ -136,7 +136,7 @@ const rotate = (direction: "left" | "right") => {
 };
 
 const autoRotate = () => {
-  intervalId = setInterval(() => {
+  intervalId = window.setInterval(() => {
     rotate("left");
   }, 3000);
 };
