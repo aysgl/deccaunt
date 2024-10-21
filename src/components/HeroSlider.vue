@@ -3,7 +3,7 @@
     <VRow dense align="center" justify="center">
       <VCol cols="12" md="8" class="mb-8 mb-md-0">
         <h1 class="text-h1 text-md-left text-center">
-          <span class="font-weight-medium">
+          <span class="font-weight-bold">
             The road to business success is through
           </span>
           <span class="text-primary font-weight-bold text-decoration-underline">

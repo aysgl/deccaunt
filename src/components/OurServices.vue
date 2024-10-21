@@ -1,8 +1,8 @@
 <template>
   <VContainer class="py-16">
     <VRow class="d-flex align-center">
-      <VCol>
-        <h2 class="text-h1 mb-4">Our services</h2>
+      <VCol cols="12" lg="6">
+        <SectionTitle title="Our services" class="mb-4" />
         <p class="text-h4 font-weight-light">
           Deccaunt as a team offers quality and reliable service with digital
           solutions, websites, ERP systems, mobile applications, email services,
@@ -10,9 +10,9 @@
         </p>
         <VBtn size="large" class="rounded-xl mt-4" text="More Details" />
       </VCol>
-      <VCol>
+      <VCol cols="12" lg="6">
         <VRow>
-          <VCol cols="12" md="6" v-for="s in services" :key="s.title">
+          <VCol cols="12" md="6" lg="6" v-for="s in services" :key="s.title">
             <VCard color="white" height="100%" class="rounded-lg">
               <VCardTitle line="2">
                 {{ s.title }}
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import SectionTitle from "./common/SectionTitle.vue";
 
 const services = ref([
   {

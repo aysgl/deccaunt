@@ -7,13 +7,13 @@ const theme: ThemeDefinition = {
   dark: false,
   colors: {
     primary: "#002FB1",
-    secondary: "#8e44ad",
     background: "#fff",
     error: "#c0392b",
     info: "#2980b9",
     success: "#27ae60",
     warning: "#f1c40f",
-    light: "#f5f5f5",
+    light: "#f1f3fa",
+    surface: "#f5f5f5",
   },
 };
 
