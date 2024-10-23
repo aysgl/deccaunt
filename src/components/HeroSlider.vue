@@ -56,7 +56,6 @@
 </template>
 
 <script setup lang="ts">
-// import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const slides = ref([
@@ -68,7 +67,7 @@ const slides = ref([
 ]);
 
 const currentSlide = ref(0);
-const slideInterval = ref<number | null>(null);
+const slideInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
 const next = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;

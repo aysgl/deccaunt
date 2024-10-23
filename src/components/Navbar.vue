@@ -14,7 +14,7 @@
         v-for="m in menu"
         :key="m.name"
         class="d-flex justify-space-center"
-        @click="$router.push(m.path)"
+        @click="() => m.path && $router.push(m.path)"
       >
         <VListItemTitle>
           <VIcon :icon="m.icon" color="primary" /> {{ m.name }}
@@ -77,7 +77,7 @@
             </v-btn>
             <VBtn
               v-else
-              @click="$router.push(m.path)"
+              @click="() => m.path && $router.push(m.path)"
               color="white"
               class="rounded-xl"
               variant="flat"
