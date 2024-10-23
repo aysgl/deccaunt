@@ -3,7 +3,7 @@
 $font-family-custom: "Quicksand", sans-serif, -apple-system, blinkmacsystemfont,
     "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-@use 'vuetify/_settings' with ($body-font-family: $font-family-custom,
+@use 'node_modules/vuetify/_settings.scss' with ($body-font-family: $font-family-custom,
     $border-radius-root: 6px,
 
     // 👉 Global border radius
@@ -170,20 +170,15 @@ $font-family-custom: "Quicksand", sans-serif, -apple-system, blinkmacsystemfont,
     // 👉 Tooltip
     $tooltip-background-color: rgb(var(--v-tooltip-background)),
     $tooltip-font-size: 0.9375rem,
-    $tooltip-padding: 4.5px 13px,
+    $tooltip-padding: 4.5px 13px);
 
-    // 👉 Timeline
-    $timeline-dot-size: 34px,
-    $timeline-dot-divider-background: rgba(var(--v-border-color), 0.08),
-
-
-    // 👉 Ripple
-    $ripple-animation-transition-in: (transform .4s cubic-bezier(0.3, 0.6, 0.2, 1), opacity .1s cubic-bezier(0.3,
-            0.6,
-            0.2,
-            1)),
-    $ripple-animation-transition-out: opacity .6s ease-in-out,
-    $ripple-animation-visible-opacity: 0);
+// 👉 Ripple
+// $ripple-animation-transition-in: (transform .4s cubic-bezier(0.3, 0.6, 0.2, 1), opacity .1s cubic-bezier(0.3,
+//         0.6,
+//         0.2,
+//         1)),
+// $ripple-animation-transition-out: opacity .6s ease-in-out,
+// $ripple-animation-visible-opacity: 0);
 
 // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
