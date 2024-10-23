@@ -1,1 +1,1 @@
-BASE_URL = "http://localhost:5173/"
+/// <reference types="vite/client" />
