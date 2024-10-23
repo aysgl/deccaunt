@@ -1,3 +1,3 @@
 <template>
-  <VContainer>Services</VContainer>
+  <router-view></router-view>
 </template>

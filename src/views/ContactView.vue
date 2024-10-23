@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import SectionTitle from "@/components/common/SectionTitle.vue";
+</script>
+
 <template>
-  <VContainer>Contact</VContainer>
+  <VContainer>
+    <SectionTitle title="Contact us" />
+  </VContainer>
 </template>

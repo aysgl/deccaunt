@@ -25,12 +25,12 @@ const router = createRouter({
       component: () => import("../views/ServicesView.vue"),
       children: [
         {
-          path: "/preparation_sites",
+          path: "preparation_sites",
           name: "PreparationOfSites",
           component: () => import("../views/services/PreparationOfSites.vue"),
         },
         {
-          path: "/development_erp_systems",
+          path: "development_erp_systems",
           name: "DevelopmentOfErpSystems",
           component: () =>
             import("../views/services/DevelopmentofErpSystems.vue"),

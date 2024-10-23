@@ -14,7 +14,7 @@
         v-for="m in menu"
         :key="m.name"
         class="d-flex justify-space-center"
-        @click="() => m.path && $router.push(m.path)"
+        @click="() => m.path && $router.push({ path: m.path })"
       >
         <VListItemTitle>
           <VIcon :icon="m.icon" color="primary" /> {{ m.name }}
@@ -68,7 +68,7 @@
                     v-for="(c, index) in m?.children"
                     :key="index"
                     :value="index"
-                    @click="$router.push(c.path)"
+                    @click="$router.push({ path: c.path })"
                   >
                     <v-list-item-title>{{ c.name }}</v-list-item-title>
                   </v-list-item>
@@ -77,7 +77,7 @@
             </v-btn>
             <VBtn
               v-else
-              @click="() => m.path && $router.push(m.path)"
+              @click="() => m.path && $router.push({ path: m.path })"
               color="white"
               class="rounded-xl"
               variant="flat"
