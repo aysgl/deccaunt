@@ -23,6 +23,19 @@ const router = createRouter({
       path: "/services",
       name: "services",
       component: () => import("../views/ServicesView.vue"),
+      children: [
+        {
+          path: "/preparation_sites",
+          name: "PreparationOfSites",
+          component: () => import("../views/services/PreparationOfSites.vue"),
+        },
+        {
+          path: "/development_erp_systems",
+          name: "DevelopmentOfErpSystems",
+          component: () =>
+            import("../views/services/DevelopmentofErpSystems.vue"),
+        },
+      ],
     },
     {
       path: "/contact",

@@ -38,12 +38,12 @@ const advanteges = ref([
 
 <template>
   <VContainer class="pb-16">
-    <SectionTitle title="Our Advantages" class="mb-8" />
+    <SectionTitle title="Our Advantages" position="center" class="mb-8" />
     <VRow>
-      <VCol cols="12" md="3" v-for="a in advanteges" :key="a.title">
-        <VCard color="light" class="h-100 rounded-lg" flat>
-          <VCardText>
-            <div class="d-flex justify-end mb-4">
+      <VCol cols="12" md="6" lg="3" v-for="a in advanteges" :key="a.title">
+        <VCard color="light" class="h-100 rounded-lg pa-6" flat>
+          <VCardText class="text-center">
+            <div class="d-flex justify-center mb-4">
               <component
                 :is="a.icons"
                 color="rgb(var(--v-theme-primary))"

@@ -1,206 +1,192 @@
 <template>
-  <VContainer class="my-md-16">
-    <VRow dense align="center" justify="center">
-      <VCol cols="12" md="8" class="mb-8 mb-md-0">
-        <h1 class="text-h1 text-md-left text-center">
-          <span class="font-weight-bold">
-            The road to business success is through
-          </span>
-          <span class="text-primary font-weight-bold text-decoration-underline">
-            Deccaount
-          </span>
-        </h1>
-      </VCol>
-      <VCol
-        cols="12"
-        md="4"
-        class="d-flex justify-md-end justify-center pe-lg-0 pe-md-9"
+  <VContainer class="pa-0" fluid>
+    <VCard flat color="light" class="rounded-0" height="500">
+      <VImg
+        height="500"
+        :style="{
+          background:
+            'linear-gradient(to top, rgba(var(--v-theme-primary), 0.1) 20%, rgba(255, 255, 255, 1) 90%)',
+        }"
       >
-        <div class="scene">
+        <VContainer class="h-100 mx-auto">
           <div
-            class="cube"
-            ref="cube"
-            :style="{ transform: `rotateY(${rotationY}deg)` }"
+            class="slide h-100"
+            v-for="(slide, index) in slides"
+            :key="index"
+            :class="{ 'is-active': currentSlide === index }"
           >
-            <div
-              v-for="(slide, index) in slider"
-              :key="index"
-              class="face"
-              :style="getFaceStyle(index)"
-            >
-              <div class="bg-light w-100 h-100">
-                <VCard v-if="slide.image">
-                  <VImg
-                    :src="slide.image"
-                    class="align-start"
-                    gradient="to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)"
-                    cover
-                  >
-                    <div class="h-100 pa-4" style="top: 0; left: 0">
-                      <h2 class="text-h1 font-weight-light text-white mb-4">
-                        {{ slide.title }}
-                      </h2>
-                      <p class="text-white">{{ slide.description }}</p>
-                    </div>
-                  </VImg>
-                </VCard>
-                <div
-                  v-else
-                  class="position-absolute h-100 pa-4"
-                  style="top: 0; left: 0"
-                >
-                  <h2 class="text-h1 font-weight-light mb-4">
-                    {{ slide.title }}
-                  </h2>
-                  <p>{{ slide.description }}</p>
-                </div>
-              </div>
+            <div class="slide__header text-center">
+              <h1 class="text-h1 slide__title font-weight-bold">
+                <span class="title-line">
+                  <span>{{ slide.title }}</span>
+                </span>
+                <span class="title-line">
+                  <span>{{ slide.subtitle }}</span>
+                </span>
+              </h1>
             </div>
           </div>
-          <div class="controls">
+          <div
+            class="position-relative d-flex flex-column justify-end align-center h-100 ga-2 pb-14"
+            style="z-index: 20"
+          >
+            <div class="text-center mb-8">
+              <VChip color="primary" text="+90 Customer" class="me-2" />
+              <VChip color="primary" text="+120 Projects" />
+            </div>
+            <!-- <div>
             <VBtn
-              variant="flat"
-              size="small"
-              @click="rotate('right')"
+              color="white"
+              @click="prev"
               :icon="IconArrowLeft"
+              size="small"
             />
             <VBtn
-              variant="flat"
-              size="small"
-              @click="rotate('left')"
+              color="white"
+              @click="next"
               :icon="IconArrowRight"
+              size="small"
             />
+          </div> -->
           </div>
-        </div>
-      </VCol>
-    </VRow>
+        </VContainer>
+      </VImg>
+    </VCard>
   </VContainer>
 </template>
 
 <script setup lang="ts">
+// import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { IconArrowRight, IconArrowLeft } from "@tabler/icons-vue";
 
-const slider = ref([
+const slides = ref([
   {
-    title: "90 +",
-    description: "Our Customers",
-    image:
-      "https://1.bp.blogspot.com/-3cFkgcTyjeE/YTkIf7sqxKI/AAAAAAAACdo/2Qq1szEFr_AmV0UCFHi8bM_elFRbrzgqQCNcBGAsYHQ/s0/2.jpg",
+    title: "Enhance Your Business",
+    subtitle: "with Speed, Security, and UX!",
   },
-  {
-    title: "120 +",
-    description: "Projects",
-    image:
-      "https://1.bp.blogspot.com/-__NNfCoD8Yk/YTkIfzAvfYI/AAAAAAAACdk/C4ZrROh8DIAkzxHbn9YQ5b4jtjMARQlQgCNcBGAsYHQ/s0/1.jpg",
-  },
-  {
-    title: "90 +",
-    description: "Our Customers",
-    image: "",
-  },
-  {
-    title: "120 +",
-    description: "Projects",
-    image: "",
-  },
+  { title: "The road to business", subtitle: "success is through Deccaount" },
 ]);
 
-const rotationY = ref(0);
-const activeIndex = ref(0);
-let intervalId: number;
+const currentSlide = ref(0);
+const slideInterval = ref<number | null>(null);
 
-const getFaceStyle = (index: number) => {
-  const transforms = [
-    "rotateY(0deg) translateZ(150px)",
-    "rotateY(90deg) translateZ(150px)",
-    "rotateY(180deg) translateZ(150px)",
-    "rotateY(-90deg) translateZ(150px)",
-  ];
-
-  return {
-    transform: transforms[index],
-    backfaceVisibility: "hidden" as const,
-  };
+const next = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.value.length;
 };
 
-const rotate = (direction: "left" | "right") => {
-  if (direction === "left") {
-    activeIndex.value =
-      (activeIndex.value - 1 + slider.value.length) % slider.value.length;
-    rotationY.value -= 90;
-  } else if (direction === "right") {
-    activeIndex.value = (activeIndex.value + 1) % slider.value.length;
-    rotationY.value += 90;
+const prev = () => {
+  currentSlide.value =
+    (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+};
+
+const startSlideShow = () => {
+  slideInterval.value = setInterval(() => {
+    next();
+  }, 6000);
+};
+
+const stopSlideShow = () => {
+  if (slideInterval.value) {
+    clearInterval(slideInterval.value);
+    slideInterval.value = null;
   }
 };
 
-const autoRotate = () => {
-  intervalId = window.setInterval(() => {
-    rotate("left");
-  }, 3000);
-};
-
 onMounted(() => {
-  autoRotate();
+  startSlideShow();
 });
 
 onBeforeUnmount(() => {
-  clearInterval(intervalId);
+  stopSlideShow();
 });
 </script>
 
 <style scoped lang="scss">
-h1 {
-  line-height: 4.5rem;
-}
+// colors
+$color-trans-bg: #ededed;
+// easings
+$ease-cb: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-cb-2: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-cb-3: cubic-bezier(0.77, 0, 0.175, 1);
+$ease-cb-4: cubic-bezier(0.99, 1, 0.92, 1);
 
-.scene {
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-  transform: scale(0.8);
-  box-shadow:
-    rgba(50, 50, 93, 1) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
+// mqs
+$mq-med: 54em;
+$mq-large: 65em;
+$mq-xlarge: 91em;
 
-.cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  border-radius: 20px;
+@mixin nth-trans-delay($delay_items: 7, $delay_time: 0.2s) {
+  @for $i from 1 through $delay_items {
+    &:nth-child(#{$i}) {
+      transition-delay: $delay_time * $i;
+    }
+  }
 }
-
-.face {
+.text-h1 {
+  @media screen and (max-width: 992px) {
+    font-size: 2.75rem !important;
+    line-height: 3rem !important;
+  }
+}
+.slide {
+  z-index: -1;
+  padding: 1rem;
+  transition: z-index 1s ease;
   position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  overflow: hidden;
-}
+  top: 0;
+  right: 0;
+  left: 0;
 
-.controls {
-  margin-top: -40px;
-  margin-left: 0px;
-  display: flex;
-  gap: 6px;
-}
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2.5rem !important;
-    line-height: 3.5rem;
-  }
-  .scene,
-  .face {
-    height: 200px;
+  @media screen and (max-width: 600px) {
+    top: -40px;
   }
 
-  .controls {
-    margin-top: -50px;
+  &.is-active {
+    z-index: 19;
+    transition: z-index 1s ease;
+  }
+
+  &__header {
+    z-index: 9;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+
+  &__title {
+    overflow-y: hidden;
+
+    .title-line {
+      display: block;
+      overflow-y: hidden;
+
+      span {
+        display: inline-block;
+        transform: translate3d(0, 140%, 0);
+        opacity: 0;
+        background: linear-gradient(-90deg, rgb(var(--v-theme-primary)), #000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition:
+          transform 0.4s ease,
+          opacity 0.8s ease;
+        @include nth-trans-delay(2, 0.15s);
+      }
+
+      .is-active & span {
+        transform: translate3d(0, 0%, 0);
+        opacity: 1;
+        transition:
+          transform 0.6s $ease-cb-3,
+          opacity 0.1s ease;
+      }
+      .is-active &:nth-of-type(2n) span {
+        transition-delay: 0.2s;
+      }
+    }
   }
 }
 </style>

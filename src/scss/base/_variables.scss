@@ -1,6 +1,6 @@
 @use "sass:math";
 
-$font-family-custom: "Varela Round", sans-serif, -apple-system, blinkmacsystemfont,
+$font-family-custom: "Quicksand", sans-serif, -apple-system, blinkmacsystemfont,
     "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 @use 'vuetify/_settings' with ($body-font-family: $font-family-custom,
@@ -18,9 +18,9 @@ $font-family-custom: "Varela Round", sans-serif, -apple-system, blinkmacsystemfo
     $shadow-key-ambient-opacity: var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.05)),
 
     // 👉 Typography
-    $typography: ("h1": ("size": 4rem,
+    $typography: ("h1": ("size": 4.5rem,
             "weight": 500,
-            "line-height": 3.25rem,
+            "line-height": 5rem,
             "letter-spacing": normal),
         "h2": ("size": 3rem,
             "weight": 500,
@@ -187,4 +187,4 @@ $font-family-custom: "Varela Round", sans-serif, -apple-system, blinkmacsystemfo
 
 // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');

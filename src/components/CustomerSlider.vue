@@ -1,70 +1,24 @@
+<script setup lang="ts">
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
+</script>
+
 <template>
-  <VContainer ref="carouselContainer">
-    <VFlex>
-      <VCarousel
-        hide-delimiters
-        cycle
+  <VContainer fluid class="position-relative">
+    <VContainer
+      class="bg-black rounded-lg position-absolute bottom-0 right-0 left-0"
+      max-width="788"
+    >
+      <VSlideGroup
+        show-arrows
         :prev-icon="IconArrowLeft"
         :next-icon="IconArrowRight"
-        height="140px"
-        show-arrows="hover"
-        class="d-flex justify-center"
       >
-        <VCarouselItem
-          v-for="(group, index) in groupedItems"
-          :key="index"
-          class="my-2"
-        >
-          <VLayout row>
-            <VFlex v-for="item in group" :key="item">
-              <VCard color="light" flat class="pa-8 ma-2 rounded-lg">
-                <div class="text-center">
-                  <div>
-                    Logo
-                    <p>{{ item }}</p>
-                  </div>
-                </div>
-              </VCard>
-            </VFlex>
-          </VLayout>
-        </VCarouselItem>
-      </VCarousel>
-    </VFlex>
+        <VSlideGroupItem v-for="n in 20" :key="n">
+          <VCard flat class="px-9 py-4 ma-1 d-grid" color="white">
+            Logo {{ n }}
+          </VCard>
+        </VSlideGroupItem>
+      </VSlideGroup>
+    </VContainer>
   </VContainer>
 </template>
-
-<script setup lang="ts">
-import { computed, ref } from "vue";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
-import { useDisplay } from "vuetify";
-
-const totalItems = 20;
-const carouselItems = ref(
-  Array.from({ length: totalItems }, (_, index) => index + 1),
-);
-
-const { width } = useDisplay();
-
-const groupedItems = computed(() => {
-  const groups = [];
-  const itemsPerSlide = getCols();
-  for (let i = 0; i < carouselItems.value.length; i += itemsPerSlide) {
-    groups.push(carouselItems.value.slice(i, i + itemsPerSlide));
-  }
-  return groups;
-});
-
-const getCols = () => {
-  if (width.value >= 1280) {
-    return 10;
-  } else if (width.value >= 960) {
-    return 7;
-  } else if (width.value >= 600) {
-    return 5;
-  } else if (width.value >= 300) {
-    return 3;
-  } else {
-    return 1;
-  }
-};
-</script>

@@ -51,34 +51,36 @@ const works = ref([
 
 <template>
   <VContainer>
-    <SectionTitle title="Our Latest Work" class="mb-6" />
+    <SectionTitle title="Our Latest Work" position="center" class="mb-6" />
     <VRow>
       <VCol cols="6" md="6" lg="3" v-for="w in works" :key="w.title">
-        <h3 class="text-h4">{{ w.title }}</h3>
-        <VImg class="rounded-lg my-2" :src="w.image" />
-        <div class="d-flex flex-wrap ga-1">
-          <VChip
-            v-for="t in w.tags"
-            :key="t"
-            class="mb-1"
-            size="small"
-            color=""
-            :text="t"
-          />
-        </div>
+        <VCard class="rounded-lg">
+          <VImg :src="w.image" />
+          <VCardTitle class="pb-2">{{ w.title }}</VCardTitle>
+          <VCardText>
+            <div class="d-flex flex-wrap ga-1">
+              <VChip
+                v-for="t in w.tags"
+                :key="t"
+                class="mb-1"
+                size="small"
+                color="primary"
+                :text="t"
+              />
+            </div>
+          </VCardText>
+        </VCard>
       </VCol>
       <VCol cols="6" lg="3" md="6">
-        <h3 class="text-h4 text-white">.</h3>
-        <VResponsive :aspect-ratio="6 / 4" class="my-2">
-          <VBtn
-            size="lg"
-            variant="tonal"
-            color="primary"
-            class="w-100 h-100 rounded-lg"
-          >
-            <component :is="IconArrowUpRight" size="30" /> More Work
-          </VBtn>
-        </VResponsive>
+        <VBtn
+          size="lg"
+          variant="tonal"
+          color="primary"
+          class="w-100 h-100 rounded-lg"
+          elevation="20"
+        >
+          <component :is="IconArrowUpRight" size="30" /> More Work
+        </VBtn>
       </VCol>
     </VRow>
   </VContainer>
