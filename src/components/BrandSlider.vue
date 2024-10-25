@@ -5,7 +5,7 @@
       max-width="788"
     >
       <client-only>
-        <Splide
+        <splide
           :options="{
             rewind: true,
             perPage: 4,
@@ -17,18 +17,19 @@
             pagination: false,
             arrows: true,
             autoplay: true,
+            perMove: 1,
             classes: {
               arrows: 'arrows',
             },
           }"
           class="px-md-16"
         >
-          <SplideSlide v-for="(logo, index) in logos" :key="index">
+          <splide-slide v-for="(logo, index) in logos" :key="index">
             <VCard flat class="px-9 py-4 ma-1" color="white">
               {{ logo }}
             </VCard>
-          </SplideSlide>
-        </Splide>
+          </splide-slide>
+        </splide>
       </client-only>
     </VContainer>
   </VContainer>

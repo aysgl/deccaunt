@@ -14,9 +14,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
     "@splidejs/vue-splide": "^0.6.12",
     "@tabler/icons": "^3.19.0",
-    "@tabler/icons-vue": "^3.19.0",
+    "@tabler/icons-vue": "^3.20.0",
     "libphonenumber-js": "^1.11.12",
     "maz-ui": "^3.47.1",
     "pinia": "^2.2.4",
@@ -46,7 +47,7 @@
     "sass": "^1.80.3",
     "sass-embedded": "^1.80.3",
     "sass-loader": "^16.0.2",
-    "typescript": "~5.5.4",
+    "typescript": "^5.6.3",
     "vite": "^5.4.8",
     "vite-plugin-vue-devtools": "^7.4.6",
     "vitest": "^2.1.2",

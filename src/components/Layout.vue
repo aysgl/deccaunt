@@ -25,9 +25,9 @@
 import { RouterView, useRoute } from "vue-router";
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import "maz-ui/styles";
-import "@splidejs/vue-splide/css";
+import "@splidejs/splide/dist/css/splide.min.css";
 import { IconBrandWhatsapp } from "@tabler/icons-vue";
 
 const route = useRoute();

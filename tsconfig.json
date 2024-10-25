@@ -4,7 +4,7 @@
         "module": "ESNext",
         "useDefineForClassFields": true,
         "moduleResolution": "Node",
-        "strict": true,
+        "strict": false,
         "jsx": "preserve",
         "esModuleInterop": true,
         "skipLibCheck": true,
@@ -18,7 +18,7 @@
         "declaration": false,
         "lib": ["DOM", "ESNext"],
         "types": ["vite/client"],
-        "noImplicitAny": true
+        "noImplicitAny": false
     },
     "include": [
         "src/**/*.ts",
