@@ -27,6 +27,7 @@ import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 import { computed, watch } from "vue";
 import "maz-ui/styles";
+import "@splidejs/vue-splide/css";
 import { IconBrandWhatsapp } from "@tabler/icons-vue";
 
 const route = useRoute();
