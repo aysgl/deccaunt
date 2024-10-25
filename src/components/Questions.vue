@@ -1,76 +1,76 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import SectionTitle from "./common/SectionTitle.vue";
 import { IconMinus, IconPlus } from "@tabler/icons-vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const tab = ref(null);
 
-const questions = ref([
+const questions = computed(() => [
   {
     id: 1,
-    name: "Preparation of Sites",
+    name: t("home.faq.faq_1"),
     questions: [
       {
-        question: "What is the difference between seo and sem?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_1"),
+        answer: t("home.faq.answer_1"),
       },
       {
-        question: "What is a backlink and why is it important?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_2"),
+        answer: t("home.faq.answer_2"),
       },
       {
-        question: "Can i do seo optimization of my site myself?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_3"),
+        answer: t("home.faq.answer_3"),
       },
       {
-        question: "How Much does seo services cost?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site.",
+        question: t("home.faq.question_4"),
+        answer: t("home.faq.answer_4"),
       },
     ],
   },
   {
     id: 2,
-    name: "ERP System",
+    name: t("home.faq.faq_2"),
     questions: [
       {
-        question: "How much does an erp system cost?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_1"),
+        answer: t("home.faq.answer_1"),
       },
       {
-        question: "How long does it take to implement an erp system?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_2"),
+        answer: t("home.faq.answer_2"),
       },
       {
-        question: "What are the benefits of the rp system?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_3"),
+        answer: t("home.faq.answer_3"),
+      },
+      {
+        question: t("home.faq.question_4"),
+        answer: t("home.faq.answer_4"),
       },
     ],
   },
   {
     id: 3,
-    name: "Email Services",
+    name: t("home.faq.faq_3"),
     questions: [
       {
-        question: "How do email archivign and backups work?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_1"),
+        answer: t("home.faq.answer_1"),
       },
       {
-        question: "How to create corporate email adresses?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_2"),
+        answer: t("home.faq.answer_2"),
       },
       {
-        question: "Why are corporate email service important?",
-        answer:
-          "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+        question: t("home.faq.question_3"),
+        answer: t("home.faq.answer_3"),
+      },
+      {
+        question: t("home.faq.question_4"),
+        answer: t("home.faq.answer_4"),
       },
     ],
   },
@@ -79,11 +79,7 @@ const questions = ref([
 
 <template>
   <VContainer class="pb-16">
-    <SectionTitle
-      title="Frequently asked questions"
-      position="center"
-      class="mb-6"
-    />
+    <SectionTitle :title="t('home.faq.title')" position="center" class="mb-6" />
 
     <VTabs v-model="tab" align-tabs="center">
       <VTab :value="t.id" v-for="t in questions" :key="t.id">

@@ -6,7 +6,7 @@
       Site Development: What Kinds of Sites Do We Build?
     </h2>
     <v-card flat color="light" class="mt-6 rounded-lg">
-      <v-tabs v-model="tab" align-tabs="center">
+      <v-tabs v-model="tab" grow align-tabs="center">
         <v-tab v-for="(s, i) in sites" :key="s.title" :value="i">
           {{ s.title }}
         </v-tab>
@@ -20,88 +20,6 @@
         </v-tabs-window>
       </v-card-text>
     </v-card>
-
-    <h3 class="text-h3 text-center my-6">
-      Basic Stages of Website Development
-    </h3>
-
-    <VRow>
-      <VCol cols="12" md="6" lg="3">
-        <VCard color="white" class="rounded-lg" height="100%">
-          <VCardText>
-            <span class="text-h2 d-flex justify-end text-primary">1</span>
-            <span>
-              Requirements Gathering and Planning (Terms of Reference) The first
-              and most important step in the website development process is
-              requirements gathering. Each website has a different purpose: it
-              can be a sales platform for e-commerce, an informative blog or a
-              corporate site. According to the needs of the client, the design
-              and functionality of the site is defined.
-            </span>
-          </VCardText>
-        </VCard>
-      </VCol>
-      <VCol cols="12" md="6" lg="3">
-        <VCard color="white" class="rounded-lg" height="100%">
-          <VCardText>
-            <span class="text-h2 d-flex justify-end text-primary">2</span>
-
-            <span>
-              When developing websites, good design creates an invaluable
-              experience for customers. The appearance and structure of the site
-              should ensure that users spend more time on the site. Mobile
-              compatibility and user-friendly interface is one of the key
-              components of website development. In the design process, colors,
-              fonts and visual elements should be harmoniously combined.
-            </span>
-          </VCardText>
-        </VCard>
-      </VCol>
-      <VCol cols="12" md="6" lg="3">
-        <VCard color="white" class="rounded-lg" height="100%">
-          <VCardText>
-            <span class="text-h2 d-flex justify-end text-primary">3</span>
-            <span>
-              Website development doesn't just end with aesthetic design. Modern
-              technologies should be applied for the site to work quickly and
-              efficiently. Frontend development uses languages ​​such as HTML,
-              CSS, and JavaScript so that users can enjoy a beautiful and
-              functional interface. On the backend side, the process of
-              developing websites with database management systems, servers and
-              programming languages ​​is carried out.
-            </span>
-          </VCardText>
-        </VCard>
-      </VCol>
-      <VCol cols="12" md="6" lg="3">
-        <VCard color="white" class="rounded-lg" height="100%">
-          <VCardText>
-            <span class="text-h2 d-flex justify-end text-primary">4</span>
-            <span>
-              After the website development is completed, various tests are
-              performed to ensure that the site is working properly. Page
-              loading speed, compatibility on mobile devices and functionality
-              of functional elements are carefully checked. After the tests are
-              successfully completed, the site is launched and open to
-              customers.
-            </span>
-          </VCardText>
-        </VCard>
-      </VCol>
-    </VRow>
-
-    <h3 class="text-h3 text-center my-6">
-      Frequently Asked Questions When Developing Sites
-    </h3>
-    <v-expansion-panels flat bg-color="light">
-      <v-expansion-panel
-        v-for="q in questions"
-        :key="q.question"
-        :title="q.question"
-        :text="q.answer"
-      >
-      </v-expansion-panel>
-    </v-expansion-panels>
   </VContainer>
 </template>
 

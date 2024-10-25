@@ -2,56 +2,63 @@
 import { ref } from "vue";
 import SectionTitle from "./common/SectionTitle.vue";
 import { IconPlus, IconArrowUpRight } from "@tabler/icons-vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const works = ref([
   {
     title: "Phoenix Polymer",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["Ecommerce"],
+    tags: [t("tags.ecommerce")],
   },
   {
     title: "Shamkir Agro Logistics",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["Corporate", "Business"],
+    tags: [t("tags.corporate"), t("tags.business")],
   },
   {
     title: "Reginal Group",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["Corporate"],
+    tags: [t("tags.corporate")],
   },
   {
     title: "SamWood",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["Corporate", "Business"],
+    tags: [t("tags.corporate"), t("tags.business")],
   },
   {
     title: "Victory",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["E-commerce"],
+    tags: [t("tags.ecommerce")],
   },
   {
     title: "iRobot",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["E-commerce"],
+    tags: [t("tags.ecommerce")],
   },
   {
     title: "Social Partner",
     description: "E-commerce website built with Phoenix Polymer framework",
     image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: ["Corporate"],
+    tags: [t("tags.corporate")],
   },
 ]);
 </script>
 
 <template>
   <VContainer>
-    <SectionTitle title="Our Latest Work" position="center" class="mb-6" />
+    <SectionTitle
+      :title="t('home.our_latest_work')"
+      position="center"
+      class="mb-6"
+    />
     <VRow>
       <VCol cols="6" md="6" lg="3" v-for="w in works" :key="w.title">
         <VCard class="rounded-lg">
@@ -79,7 +86,8 @@ const works = ref([
           class="w-100 h-100 rounded-lg"
           elevation="20"
         >
-          <component :is="IconArrowUpRight" size="30" /> More Work
+          <component :is="IconArrowUpRight" size="30" />
+          {{ t("home.more_work") }}
         </VBtn>
       </VCol>
     </VRow>

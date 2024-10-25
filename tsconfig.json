@@ -2,15 +2,17 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "ESNext",
+        "useDefineForClassFields": true,
         "moduleResolution": "Node",
         "strict": true,
         "jsx": "preserve",
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
         "baseUrl": "src",
         "paths": {
-            "@/*": ["*"]
+            "@/*": ["src/*"]
         },
         "outDir": "dist",
         "declaration": false,
@@ -22,7 +24,8 @@
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "src/vite-env.d.ts"
+        "src/vite-env.d.ts",
+        "src/i18n.js"
     ],
     "exclude": ["node_modules", "dist"]
 }

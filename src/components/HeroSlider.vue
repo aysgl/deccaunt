@@ -1,8 +1,8 @@
 <template>
   <VContainer class="pa-0" fluid>
-    <VCard flat color="light" class="rounded-0" height="500">
+    <VCard flat color="light" class="rounded-0" height="450">
       <VImg
-        height="500"
+        height="450"
         :style="{
           background:
             'linear-gradient(to top, rgba(var(--v-theme-primary), 0.1) 20%, rgba(255, 255, 255, 1) 90%)',
@@ -10,7 +10,7 @@
       >
         <VContainer class="h-100 mx-auto">
           <div
-            class="slide h-100"
+            class="slide h-75"
             v-for="(slide, index) in slides"
             :key="index"
             :class="{ 'is-active': currentSlide === index }"
@@ -31,23 +31,16 @@
             style="z-index: 20"
           >
             <div class="text-center mb-8">
-              <VChip color="primary" text="+90 Customer" class="me-2" />
-              <VChip color="primary" text="+120 Projects" />
+              <VChip
+                color="primary"
+                :text="t('home.customer_length', { length: 90 })"
+                class="me-2"
+              />
+              <VChip
+                color="primary"
+                :text="t('home.projects_length', { length: 120 })"
+              />
             </div>
-            <!-- <div>
-            <VBtn
-              color="white"
-              @click="prev"
-              :icon="IconArrowLeft"
-              size="small"
-            />
-            <VBtn
-              color="white"
-              @click="next"
-              :icon="IconArrowRight"
-              size="small"
-            />
-          </div> -->
           </div>
         </VContainer>
       </VImg>
@@ -56,14 +49,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
-const slides = ref([
+const slides = computed(() => [
   {
-    title: "Enhance Your Business",
-    subtitle: "with Speed, Security, and UX!",
+    title: t("home.slide_one.1"),
+    subtitle: t("home.slide_one.2"),
   },
-  { title: "The road to business", subtitle: "success is through Deccaount" },
+  { title: t("home.slide_two.1"), subtitle: t("home.slide_two.2") },
 ]);
 
 const currentSlide = ref(0);
@@ -71,11 +66,6 @@ const slideInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
 const next = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;
-};
-
-const prev = () => {
-  currentSlide.value =
-    (currentSlide.value - 1 + slides.value.length) % slides.value.length;
 };
 
 const startSlideShow = () => {
@@ -101,15 +91,11 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped lang="scss">
-// colors
 $color-trans-bg: #ededed;
-// easings
 $ease-cb: cubic-bezier(0.4, 0, 0.2, 1);
 $ease-cb-2: cubic-bezier(0.19, 1, 0.22, 1);
 $ease-cb-3: cubic-bezier(0.77, 0, 0.175, 1);
 $ease-cb-4: cubic-bezier(0.99, 1, 0.92, 1);
-
-// mqs
 $mq-med: 54em;
 $mq-large: 65em;
 $mq-xlarge: 91em;
@@ -137,7 +123,7 @@ $mq-xlarge: 91em;
   left: 0;
 
   @media screen and (max-width: 600px) {
-    top: -40px;
+    top: -30px;
   }
 
   &.is-active {

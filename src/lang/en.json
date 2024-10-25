@@ -1,0 +1,125 @@
+{
+    "sidebar": {
+        "home": "Home",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "service": "Services",
+        "contact": "Contact",
+        "get_a_quote": "Get a quote"
+    },
+    "home": {
+        "slide_one": {
+            "1": "Enhance Your Business",
+            "2": "with Speed, Security, and UX!"
+        },
+        "slide_two": {
+            "1": "The road to business",
+            "2": "success is through Deccaount"
+        },
+        "customer_length": "+{length} Customer",
+        "projects_length": "+{length} Projects",
+        "advantages": {
+            "title": "Our Advantages",
+            "advantage_1": "Honest communication",
+            "advantage_1_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_2": "Transparent prices",
+            "advantage_2_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_3": "Guaranteed delivery time",
+            "advantage_3_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_4": "Professional experience",
+            "advantage_4_desc": "Our platform ensures that our messages are honest and transparent."
+        },
+        "our_latest_work": "Our Latest Work",
+        "more_work": "More Work",
+        "call_us": {
+            "title": "If you have any idea or project in mind, give us a call.",
+            "subtitle": "Let's do it as soon as possible.",
+            "phone": "+90 0543 322 22 22",
+            "contact_us": "Contact Us"
+        },
+        "faq": {
+            "title": "Frequently asked questions",
+            "faq_1": "Preparation of Sites",
+            "question_1": "What is the difference between seo and sem?",
+            "answer_1": "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+            "question_2": "What is a backlink and why is it important?",
+            "answer_2": "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+            "question_3": "Can i do seo optimization of my site myself?",
+            "answer_3": "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+            "question_4": "How Much does seo services cost?",
+            "answer_4": "Lorem is just ipsum dolor sit amet, consectetur. Rempis just as much as possible in my site",
+            "faq_2": "ERP System",
+            "faq_3": "Email Services"
+        }
+    },
+    "about": {
+        "title": "Let us briefly introduce ourselves",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatem.",
+        "our_mission": "Our mission",
+        "our_mission_desc": "Deccaount aims for customer satisfaction and we understand that a satisfied customer is the best form of promotion. By solving the digital-technical problems of our customers, we ensure that they are ahead of the competition.",
+        "our_vision": "Our vision",
+        "our_vision_desc": "As a team of Deccaount, we offer quality and reliable services for your business, organization and even personal integration of digital solutions, websites, ERP systems, mobile applications, email services, payment systems.",
+        "references": "References",
+        "reviews": "Reviews of our customers",
+        "review_1": "Sarah Johnson",
+        "review_1_desc": "I faced some issues during my initial order process, but the customer service team was incredibly responsive and resolved them quickly. They listened to my concerns and provided clear solutions, which made the whole experience much better. I appreciate their dedication to customer satisfaction and would definitely use their services again.",
+        "review_2": "Emily Davis",
+        "review_2_desc": "There was a slight delay in receiving my order, which was a bit concerning at first. However, I was kept informed throughout the process, and when my package finally arrived, I was pleasantly surprised by the quality of the product.",
+        "review_3": "Michael Brown",
+        "review_3_desc": "Excellent quality service from start to finish! The team was professional, knowledgeable, and attentive to my needs."
+    },
+    "portfolio": {
+        "title": "Works by Deccaount",
+        "all": "All Jobs",
+        "finished": "Finished",
+        "continue": "Continue"
+    },
+    "services": {
+        "title": "Our Services",
+        "description": "Deccaunt as a team offers quality and reliable service with digital solutions, websites, ERP systems, mobile applications, email services, integration of payment systems and other services.",
+        "services_1": "Preparation of sites",
+        "services_1_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget",
+        "services_2": "Development of ERP systems",
+        "services_2_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget",
+        "services_3": "Development of mobile applications",
+        "services_3_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget",
+        "services_4": "Corporate Email preparation",
+        "services_4_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "address": "Address",
+        "working_hours": "Working Hours",
+        "phone": "Phone",
+        "email": "Email",
+        "name": "Name",
+        "surname": "Surname",
+        "message": "Message",
+        "send": "Send"
+    },
+    "get_a_quote": {
+        "title": "Get a Quote",
+        "email": "Email",
+        "name": "Name",
+        "surname": "Surname",
+        "message": "Message",
+        "send": "Send"
+    },
+    "tags": {
+        "landing_page": "Landing Page",
+        "erp": "ERP",
+        "ecommerce": "E-Commerce",
+        "business": "Business",
+        "hrm": "HRM",
+        "pos": "POS",
+        "blog": "Blog",
+        "corporate": "Corporate"
+    },
+    "footer": {
+        "contact_us": "Contact Us",
+        "get_a_quote": "Get a Quote",
+        "write_to_us": "Write to Us",
+        "follow_us": "Follow Us",
+        "footer_desc": "© 2024 Deccaunt. All rights reserved."
+    }
+}

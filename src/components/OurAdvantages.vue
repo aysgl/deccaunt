@@ -7,30 +7,29 @@ import {
 } from "@tabler/icons-vue";
 import SectionTitle from "./common/SectionTitle.vue";
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const advanteges = ref([
   {
-    title: "Honest communication",
-    description:
-      "Our platform ensures that our messages are honest and transparent.",
+    title: t("home.advantages.advantage_1"),
+    description: t("home.advantages.advantage_1_desc"),
     icons: IconPhone,
   },
   {
-    title: "Transparent prices",
-    description:
-      "Our platform ensures that our messages are honest and transparent.",
+    title: t("home.advantages.advantage_2"),
+    description: t("home.advantages.advantage_2_desc"),
     icons: IconMapDollar,
   },
   {
-    title: "Guaranteed delivery time",
-    description:
-      "Our platform ensures that our messages are honest and transparent.",
+    title: t("home.advantages.advantage_3"),
+    description: t("home.advantages.advantage_3_desc"),
     icons: IconShieldHalfFilled,
   },
   {
-    title: "Professional experience",
-    description:
-      "Our platform ensures that our messages are honest and transparent.",
+    title: t("home.advantages.advantage_4"),
+    description: t("home.advantages.advantage_4_desc"),
     icons: IconSettings,
   },
 ]);
@@ -38,7 +37,11 @@ const advanteges = ref([
 
 <template>
   <VContainer class="pb-16">
-    <SectionTitle title="Our Advantages" position="center" class="mb-8" />
+    <SectionTitle
+      :title="t('home.advantages.title')"
+      position="center"
+      class="mb-8"
+    />
     <VRow>
       <VCol cols="12" md="6" lg="3" v-for="a in advanteges" :key="a.title">
         <VCard color="light" class="h-100 rounded-lg pa-6" flat>

@@ -8,6 +8,16 @@
       <RouterView />
     </VMain>
     <Footer />
+    <div class="position-relative">
+      <VBtn
+        href="https://wa.me/+905393242038"
+        target="_blank"
+        color="success"
+        class="position-fixed right-0 bottom-0 ma-4"
+        size="large"
+        :icon="IconBrandWhatsapp"
+      ></VBtn>
+    </div>
   </VApp>
 </template>
 
@@ -16,11 +26,12 @@ import { RouterView, useRoute } from "vue-router";
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 import { computed, watch } from "vue";
+import "maz-ui/styles";
+import { IconBrandWhatsapp } from "@tabler/icons-vue";
 
 const route = useRoute();
 
 const breadcrumbs = computed(() => {
-  // Split the path and filter out empty segments
   const paths = route.path.split("/").filter(Boolean);
 
   if (paths.length === 0) {
@@ -31,15 +42,10 @@ const breadcrumbs = computed(() => {
     const fullPath = "/" + paths.slice(0, index + 1).join("/");
 
     return {
-      text: path.charAt(0).toUpperCase() + path.slice(1), // Capitalize the first letter
-      value: fullPath, // Full path to navigate to
-      disabled: index === paths.length - 1, // Disable the last breadcrumb
+      text: path.charAt(0).toUpperCase() + path.slice(1),
+      value: fullPath,
+      disabled: index === paths.length - 1,
     };
   });
-});
-
-// Watch for route changes to debug
-watch(route, (newRoute) => {
-  console.log("Updated Route:", newRoute.path);
 });
 </script>

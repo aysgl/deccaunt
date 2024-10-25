@@ -1,0 +1,125 @@
+{
+    "sidebar": {
+        "home": "Ana səhifə",
+        "about": "Haqqımızda",
+        "portfolio": "Portfel",
+        "service": "Xidmətlər",
+        "contact": "Əlaqə",
+        "get_a_quote": "Qiymət al"
+    },
+    "home": {
+        "slide_one": {
+            "1": "Biznesinizi təkmilləşdirin",
+            "2": "Sürət, Təhlükəsizlik və UX ilə!"
+        },
+        "slide_two": {
+            "1": "Biznes uğurunun yolu",
+            "2": "Deccaount vasitəsilədir"
+        },
+        "customer_length": "+{length} Müştəri",
+        "projects_length": "+{length} Layihə",
+        "advantages": {
+            "title": "Üstünlüklərimiz",
+            "advantage_1": "Dürüst kommunikasiya",
+            "advantage_1_desc": "Platformamız mesajlarımızın dürüst və şəffaf olmasını təmin edir.",
+            "advantage_2": "Şəffaf qiymətlər",
+            "advantage_2_desc": "Platformamız mesajlarımızın dürüst və şəffaf olmasını təmin edir.",
+            "advantage_3": "Zəmanətli çatdırılma vaxtı",
+            "advantage_3_desc": "Platformamız mesajlarımızın dürüst və şəffaf olmasını təmin edir.",
+            "advantage_4": "Peşəkar təcrübə",
+            "advantage_4_desc": "Platformamız mesajlarımızın dürüst və şəffaf olmasını təmin edir."
+        },
+        "our_latest_work": "Son işlərimiz",
+        "more_work": "Daha işlərimiz",
+        "call_us": {
+            "title": "Hər hansı bir ideya və ya layihəniz varsa, bizə zəng edin.",
+            "subtitle": "Gəlin bunu mümkün qədər tez edək.",
+            "phone": "+90 0543 322 22 22",
+            "contact_us": "Bizimlə əlaqə saxlayın"
+        },
+        "faq": {
+            "title": "Tez-tez verilən suallar",
+            "faq_1": "Saytların hazırlanması",
+            "question_1": "SEO və SEM arasındakı fərq nədir?",
+            "answer_1": "Lorem ipsum sadəcə mətndir, consectetur. Rempis saytımda mümkün qədər çox olmalıdır.",
+            "question_2": "Backlink nədir və niyə vacibdir?",
+            "answer_2": "Lorem ipsum sadəcə mətndir, consectetur. Rempis saytımda mümkün qədər çox olmalıdır.",
+            "question_3": "Saytımın SEO optimallaşdırmasını özüm edə bilərəmmi?",
+            "answer_3": "Lorem ipsum sadəcə mətndir, consectetur. Rempis saytımda mümkün qədər çox olmalıdır.",
+            "question_4": "SEO xidmətlərinin qiyməti nə qədərdir?",
+            "answer_4": "Lorem ipsum sadəcə mətndir, consectetur. Rempis saytımda mümkün qədər çox olmalıdır.",
+            "faq_2": "ERP Sistemi",
+            "faq_3": "Email Xidmətləri"
+        }
+    },
+    "about": {
+        "title": "Özümüzü qısaca təqdim edək",
+        "description": "Lorem ipsum sadəcə mətndir. Lorem ipsum sadəcə mətndir.",
+        "our_mission": "Bizim missiyamız",
+        "our_mission_desc": "Deccaount müştəri məmnuniyyətini hədəfləyir və başa düşür ki, məmnun müştəri ən yaxşı reklamdır.",
+        "our_vision": "Bizim vizyonumuz",
+        "our_vision_desc": "Deccaount komandası olaraq sizin işiniz, təşkilatınız və şəxsi rəqəmsal həlləriniz üçün keyfiyyətli və etibarlı xidmətlər təqdim edirik.",
+        "references": "İstinadlar",
+        "reviews": "Müştərilərimizin rəyləri",
+        "review_1": "Sarah Johnson",
+        "review_1_desc": "Bəzi problemlərlə üzləşdim, amma müştəri xidməti onları həll etdi.",
+        "review_2": "Emily Davis",
+        "review_2_desc": "Kiçik gecikmə oldu, amma ümumiyyətlə məmnunam.",
+        "review_3": "Michael Brown",
+        "review_3_desc": "Mükəmməl keyfiyyətli xidmət, çox tövsiyə edirəm."
+    },
+    "portfolio": {
+        "title": "Deccaount-un işləri",
+        "all": "Bütün işlər",
+        "finished": "Bitmiş",
+        "continue": "Davam edən"
+    },
+    "services": {
+        "title": "Xidmətlərimiz",
+        "description": "Deccaount komandası olaraq rəqəmsal həllər, saytlar, ERP sistemləri, mobil tətbiqlər və digər xidmətlər təqdim edirik.",
+        "services_1": "Saytların hazırlanması",
+        "services_1_desc": "Lorem ipsum sadəcə mətndir, consectetur adipiscing elit.",
+        "services_2": "ERP sistemlərinin hazırlanması",
+        "services_2_desc": "Lorem ipsum sadəcə mətndir, consectetur adipiscing elit.",
+        "services_3": "Mobil tətbiqlərin hazırlanması",
+        "services_3_desc": "Lorem ipsum sadəcə mətndir, consectetur adipiscing elit.",
+        "services_4": "Korporativ Email hazırlanması",
+        "services_4_desc": "Lorem ipsum sadəcə mətndir, consectetur adipiscing elit."
+    },
+    "contact": {
+        "title": "Bizimlə Əlaqə Saxlayın",
+        "address": "Ünvan",
+        "working_hours": "İş Saatları",
+        "phone": "Telefon",
+        "email": "E-poçt",
+        "name": "Ad",
+        "surname": "Soyad",
+        "message": "Mesaj",
+        "send": "Göndər"
+    },
+    "get_a_quote": {
+        "title": "Təklif Al",
+        "email": "E-poçt",
+        "name": "Ad",
+        "surname": "Soyad",
+        "message": "Mesaj",
+        "send": "Göndər"
+    },
+    "tags": {
+        "landing_page": "Landing Page",
+        "erp": "ERP",
+        "ecommerce": "E-Ticarət",
+        "business": "Biznes",
+        "hrm": "İnsan Resursları",
+        "pos": "POS",
+        "blog": "Blog",
+        "corporate": "Corporate"
+    },
+    "footer": {
+        "contact_us": "Bizimlə Əlaqə Saxlayın",
+        "get_a_quote": "Qiymət Alın",
+        "write_to_us": "Bizə Yazın",
+        "follow_us": "Bizi İzləyin",
+        "footer_desc": "© 2024 Deccaunt. All rights reserved."
+    }
+}

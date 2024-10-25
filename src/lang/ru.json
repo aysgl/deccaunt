@@ -1,0 +1,125 @@
+{
+    "sidebar": {
+        "home": "Главная",
+        "about": "О нас",
+        "portfolio": "Портфолио",
+        "service": "Услуги",
+        "contact": "Контакты",
+        "get_a_quote": "Получить предложение"
+    },
+    "home": {
+        "slide_one": {
+            "1": "Улучшите ваш бизнес",
+            "2": "со скоростью, безопасностью и UX!"
+        },
+        "slide_two": {
+            "1": "Дорога к успеху бизнеса",
+            "2": "лежит через Deccaount"
+        },
+        "customer_length": "+{length} клиентов",
+        "projects_length": "+{length} проектов",
+        "advantages": {
+            "title": "Наши преимущества",
+            "advantage_1": "Честное общение",
+            "advantage_1_desc": "Наша платформа обеспечивает честные и прозрачные сообщения.",
+            "advantage_2": "Прозрачные цены",
+            "advantage_2_desc": "Наша платформа обеспечивает честные и прозрачные сообщения.",
+            "advantage_3": "Гарантированные сроки выполнения",
+            "advantage_3_desc": "Наша платформа обеспечивает честные и прозрачные сообщения.",
+            "advantage_4": "Профессиональный опыт",
+            "advantage_4_desc": "Наша платформа обеспечивает честные и прозрачные сообщения."
+        },
+        "our_latest_work": "Наши последние работы",
+        "more_work": "Больше работ",
+        "call_us": {
+            "title": "Если у вас есть идея или проект, позвоните нам.",
+            "subtitle": "Давайте сделаем это как можно скорее.",
+            "phone": "+90 0543 322 22 22",
+            "contact_us": "Свяжитесь с нами"
+        },
+        "faq": {
+            "title": "Часто задаваемые вопросы",
+            "faq_1": "Подготовка сайтов",
+            "question_1": "В чем разница между SEO и SEM?",
+            "answer_1": "Lorem просто ipsum dolor sit amet, consectetur. Rempis насколько это возможно на моем сайте.",
+            "question_2": "Что такое обратная ссылка и почему она важна?",
+            "answer_2": "Lorem просто ipsum dolor sit amet, consectetur. Rempis насколько это возможно на моем сайте.",
+            "question_3": "Могу ли я сам оптимизировать свой сайт для SEO?",
+            "answer_3": "Lorem просто ipsum dolor sit amet, consectetur. Rempis насколько это возможно на моем сайте.",
+            "question_4": "Сколько стоит SEO-услуги?",
+            "answer_4": "Lorem просто ipsum dolor sit amet, consectetur. Rempis насколько это возможно на моем сайте.",
+            "faq_2": "ERP система",
+            "faq_3": "Услуги электронной почты"
+        }
+    },
+    "about": {
+        "title": "Позвольте нам кратко представить себя",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatem.",
+        "our_mission": "Наша миссия",
+        "our_mission_desc": "Deccaount стремится к удовлетворению клиентов и понимает, что довольный клиент - лучшая форма продвижения. Решая цифрово-технические проблемы наших клиентов, мы обеспечиваем их опережение конкурентов.",
+        "our_vision": "Наше видение",
+        "our_vision_desc": "Как команда Deccaount, мы предлагаем качественные и надежные услуги для вашего бизнеса, организации и даже для личной интеграции цифровых решений, веб-сайтов, ERP-систем, мобильных приложений, сервисов электронной почты, платежных систем.",
+        "references": "Рекомендации",
+        "reviews": "Отзывы наших клиентов",
+        "review_1": "Сара Джонсон",
+        "review_1_desc": "Я столкнулась с некоторыми проблемами, но служба поддержки их решила.",
+        "review_2": "Эмили Дэвис",
+        "review_2_desc": "Было небольшое задержание, но в целом я довольна.",
+        "review_3": "Майкл Браун",
+        "review_3_desc": "Отличное качество сервиса, очень рекомендую."
+    },
+    "portfolio": {
+        "title": "Работы Deccaount",
+        "all": "Все работы",
+        "finished": "Завершено",
+        "continue": "Продолжается"
+    },
+    "services": {
+        "title": "Наши услуги",
+        "description": "Команда Deccaount предлагает качественные и надежные услуги с использованием цифровых решений, веб-сайтов, ERP-систем, мобильных приложений, сервисов электронной почты, интеграции платежных систем и других услуг.",
+        "services_1": "Подготовка сайтов",
+        "services_1_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget.",
+        "services_2": "Разработка ERP-систем",
+        "services_2_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget.",
+        "services_3": "Разработка мобильных приложений",
+        "services_3_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget.",
+        "services_4": "Подготовка корпоративной электронной почты",
+        "services_4_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo euismod, accumsan felis eget."
+    },
+    "contact": {
+        "title": "Свяжитесь с нами",
+        "address": "Адрес",
+        "working_hours": "Часы работы",
+        "phone": "Телефон",
+        "email": "Эл. почта",
+        "name": "Имя",
+        "surname": "Фамилия",
+        "message": "Сообщение",
+        "send": "Отправить"
+    },
+    "get_a_quote": {
+        "title": "Получить предложение",
+        "email": "Эл. почта",
+        "name": "Имя",
+        "surname": "Фамилия",
+        "message": "Сообщение",
+        "send": "Отправить"
+    },
+    "tags": {
+        "landing_page": "Лендинг",
+        "erp": "ERP",
+        "ecommerce": "Электронная коммерция",
+        "business": "Бизнес",
+        "hrm": "HRM",
+        "pos": "POS",
+        "blog": "Блог",
+        "corporate": "Корпоративный"
+    },
+    "footer": {
+        "contact_us": "Свяжитесь с нами",
+        "get_a_quote": "Получить предложение",
+        "write_to_us": "Напишите нам",
+        "follow_us": "Следуйте за нами",
+        "footer_desc": "© 2024 Deccaount. Все права защищены."
+    }
+}

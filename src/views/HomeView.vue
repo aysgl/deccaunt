@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CustomerSlider from "@/components/CustomerSlider.vue";
+import BrandSlider from "@/components/BrandSlider.vue";
 import OurAdvantages from "@/components/OurAdvantages.vue";
 import OurServices from "@/components/OurServices.vue";
 import HeroSlider from "@/components/HeroSlider.vue";
@@ -10,7 +10,7 @@ import Questions from "@/components/Questions.vue";
 
 <template>
   <HeroSlider />
-  <CustomerSlider />
+  <BrandSlider />
   <OurServices />
   <OurAdvantages />
   <OurWorks />

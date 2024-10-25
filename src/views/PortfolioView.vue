@@ -2,13 +2,14 @@
 import { ref } from "vue";
 import { IconMinus, IconPlus } from "@tabler/icons-vue";
 import SectionTitle from "@/components/common/SectionTitle.vue";
+import { useI18n } from "vue-i18n";
 
 const tab = ref(null);
-
+const { t } = useI18n();
 const projects = ref([
   {
     id: 1,
-    name: "All Jobs",
+    name: t("portfolio.all"),
     works: [
       {
         title: "Shamkir Agro Logistics",
@@ -50,7 +51,7 @@ const projects = ref([
   },
   {
     id: 2,
-    name: "Finished",
+    name: t("portfolio.finished"),
     works: [
       {
         title: "Reginal Group",
@@ -86,7 +87,7 @@ const projects = ref([
   },
   {
     id: 3,
-    name: "Continue",
+    name: t("portfolio.continue"),
     works: [
       {
         title: "Phoenix Polymer",
@@ -137,9 +138,13 @@ const projects = ref([
 
 <template>
   <VContainer class="pb-16">
-    <SectionTitle title="Works by Deccaount" class="mb-6" />
+    <SectionTitle
+      :title="t('portfolio.title')"
+      class="mb-6"
+      position="center"
+    />
 
-    <VTabs v-model="tab" align-tabs="start">
+    <VTabs v-model="tab" align-tabs="center">
       <VTab :value="t.id" v-for="t in projects" :key="t.id">
         {{ t.name }}
       </VTab>

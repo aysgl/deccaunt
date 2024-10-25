@@ -1,7 +1,7 @@
 <template>
   <v-carousel
     class="rounded-lg"
-    height="300"
+    height="400"
     show-arrows="hover"
     cycle
     hide-delimiter-background
@@ -16,7 +16,9 @@
             <span>{{ review.name.slice(0, 1) }}</span>
           </v-avatar>
           <div class="text-h4 mb-4">{{ review.name }}</div>
-          <div class="text-h3">{{ review.comment }}</div>
+          <div class="text-h5 text-center" style="max-width: 600px">
+            {{ review.comment }}
+          </div>
           <div class="mt-4">Rating: {{ review.rating }}/5</div>
         </div>
       </v-sheet>
@@ -27,32 +29,25 @@
 <script setup lang="ts">
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const reviews = ref([
   {
-    name: "John Doe",
-    comment: "I was really satisfied with the service, everything was great!",
+    name: t("about.review_1"),
+    comment: t("about.review_1_desc"),
     rating: 5,
   },
   {
-    name: "Jane Smith",
-    comment: "Good value for money, met my expectations.",
+    name: t("about.review_2"),
+    comment: t("about.review_2_desc"),
     rating: 4,
   },
   {
-    name: "Sarah Johnson",
-    comment: "I faced some issues, but customer service resolved them.",
+    name: t("about.review_3"),
+    comment: t("about.review_3_desc"),
     rating: 3,
-  },
-  {
-    name: "Michael Brown",
-    comment: "Excellent quality service, highly recommend it.",
-    rating: 5,
-  },
-  {
-    name: "Emily Davis",
-    comment: "There was a slight delay, but overall I'm happy.",
-    rating: 4,
   },
 ]);
 </script>

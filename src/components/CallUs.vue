@@ -8,22 +8,24 @@
           </VCol>
           <VCol cols="8">
             <h4 class="text-h4 mb-6 mt-2">
-              If you have any idea or project in mind, give us a call.
+              {{ t("home.call_us.title") }}
               <br />
-              <span class="font-weight-bold"
-                >Let's do it as soon as possible.</span
-              >
+              <span class="font-weight-bold">
+                {{ t("home.call_us.subtitle") }}
+              </span>
             </h4>
 
             <VBtn
-              href="tel:+994501234567"
+              :href="'tel:' + t('home.call_us.phone')"
               class="rounded-xl me-2 mb-2"
               variant="outlined"
             >
-              +994 50 123 45 67
+              {{ t("home.call_us.phone") }}
             </VBtn>
             <RouterLink to="/contact">
-              <VBtn class="rounded-xl mb-2" variant="flat">Contact Us</VBtn>
+              <VBtn class="rounded-xl mb-2" variant="flat">
+                {{ t("home.call_us.contact_us") }}
+              </VBtn>
             </RouterLink>
           </VCol>
         </VRow>
@@ -34,4 +36,6 @@
 
 <script setup lang="ts">
 import { IconPhoneCalling } from "@tabler/icons-vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 </script>

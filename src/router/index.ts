@@ -42,6 +42,11 @@ const router = createRouter({
       name: "contact",
       component: () => import("../views/ContactView.vue"),
     },
+    {
+      path: "/quote",
+      name: "quote",
+      component: () => import("../views/GetQuoteView.vue"),
+    },
   ],
 });
 
