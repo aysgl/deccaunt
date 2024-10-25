@@ -135,14 +135,14 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const { t } = useI18n();
 
-const isActiveMenu = (item) => {
+const isActiveMenu = (item: any) => {
   if (item.path === route.path) {
     return true;
   }
   console.log(item);
 
   if (item.children && item.children.length > 0) {
-    return item.children.some((c) => c.path === route.path);
+    return item.children.some((c: any) => c.path === route.path);
   }
 };
 
