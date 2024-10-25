@@ -3,10 +3,10 @@
     <VCard flat color="light">
       <VCardText>
         <VRow align="center">
-          <VCol cols="4" class="text-end">
+          <VCol cols="12" md="4" class="text-md-end text-center">
             <IconPhoneCalling color="rgb(var(--v-theme-primary))" size="120" />
           </VCol>
-          <VCol cols="8">
+          <VCol cols="12" md="8" class="text-md-start text-center">
             <h4 class="text-h4 mb-6 mt-2">
               {{ t("home.call_us.title") }}
               <br />

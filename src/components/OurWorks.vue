@@ -60,7 +60,7 @@ const works = ref([
       class="mb-6"
     />
     <VRow>
-      <VCol cols="6" md="6" lg="3" v-for="w in works" :key="w.title">
+      <VCol cols="12" md="6" lg="3" v-for="w in works" :key="w.title">
         <VCard class="rounded-lg">
           <VImg :src="w.image" />
           <VCardTitle class="pb-2">{{ w.title }}</VCardTitle>
@@ -78,12 +78,12 @@ const works = ref([
           </VCardText>
         </VCard>
       </VCol>
-      <VCol cols="6" lg="3" md="6">
+      <VCol cols="12" lg="3" md="6">
         <VBtn
           size="lg"
           variant="tonal"
           color="primary"
-          class="w-100 h-100 rounded-lg"
+          class="w-100 h-100 rounded-lg py-10"
           elevation="20"
         >
           <component :is="IconArrowUpRight" size="30" />

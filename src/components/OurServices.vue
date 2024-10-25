@@ -1,7 +1,7 @@
 <template>
   <VContainer class="pb-16">
     <VRow class="d-flex align-center">
-      <VCol cols="8" class="mx-auto mb-6">
+      <VCol cols="12" md="8" class="mx-auto mb-6">
         <SectionTitle
           :title="t('services.title')"
           position="center"

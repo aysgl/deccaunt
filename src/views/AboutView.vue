@@ -12,9 +12,14 @@ const { t } = useI18n();
       {{ t("about.description") }}
     </p>
     <VRow>
-      <VCol cols="6">
-        <VCard color="primary" flat class="rounded-lg">
+      <VCol cols="12" md="6">
+        <VCard
+          color="primary"
+          flat
+          class="rounded-lg text-md-start text-center"
+        >
           <VImg
+            cover
             class="align-end h-100"
             gradient="to top, rgba(var(--v-theme-primary), 1), rgba(0, 0, 0, .4)"
             src="https://images.pexels.com/photos/3228684/pexels-photo-3228684.jpeg"
@@ -28,9 +33,14 @@ const { t } = useI18n();
           </VImg>
         </VCard>
       </VCol>
-      <VCol cols="6">
-        <VCard color="primary" flat class="rounded-lg">
+      <VCol cols="12" md="6">
+        <VCard
+          color="primary"
+          flat
+          class="rounded-lg text-md-start text-center"
+        >
           <VImg
+            cover
             class="align-end h-100"
             gradient="to top, rgba(var(--v-theme-primary), 1), rgba(0, 0, 0, .4)"
             src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -51,7 +61,7 @@ const { t } = useI18n();
       position="center"
     />
     <VRow>
-      <VCol cols="2" v-for="item in 18" :key="item">
+      <VCol cols="6" md="2" v-for="item in 18" :key="item">
         <VCard color="light" flat class="pa-10 rounded-lg">
           <div class="text-center">
             Logo

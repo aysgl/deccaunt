@@ -1,7 +1,6 @@
 <template>
   <v-carousel
     class="rounded-lg"
-    height="400"
     show-arrows="hover"
     cycle
     hide-delimiter-background
@@ -10,7 +9,7 @@
     :next-icon="IconArrowRight"
   >
     <v-carousel-item v-for="(review, i) in reviews" :key="i">
-      <v-sheet height="100%" color="primary">
+      <v-sheet height="100%" color="primary" class="pa-10">
         <div class="d-flex fill-height justify-center align-center flex-column">
           <v-avatar color="light" size="large" variant="tonal" class="mb-3">
             <span>{{ review.name.slice(0, 1) }}</span>

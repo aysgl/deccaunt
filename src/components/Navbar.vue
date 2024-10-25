@@ -1,5 +1,5 @@
 <template>
-  <VNavigationDrawer v-model="drawer" temporary app>
+  <VNavigationDrawer v-model="drawer" temporary app style="z-index: 1">
     <div class="mt-4 ms-4">
       <img
         alt="Vue logo"

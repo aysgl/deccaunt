@@ -153,7 +153,7 @@ const projects = ref([
     <VTabsWindow v-model="tab" class="mt-4">
       <VTabsWindowItem v-for="q in projects" :key="q.id" :value="q.id">
         <VRow flat bg-color="light">
-          <VCol cols="6" md="6" lg="3" v-for="w in q.works" :key="w.title">
+          <VCol cols="12" md="6" lg="3" v-for="w in q.works" :key="w.title">
             <VCard flat color="light" class="rounded-lg">
               <VImg :src="w.image" />
               <VCardTitle class="pb-2">{{ w.title }}</VCardTitle>
