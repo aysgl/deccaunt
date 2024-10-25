@@ -4,30 +4,32 @@
       class="bg-black rounded-lg position-absolute bottom-0 right-0 left-0 pa-1"
       max-width="788"
     >
-      <Splide
-        :options="{
-          rewind: true,
-          perPage: 4,
-          breakpoints: {
-            640: {
-              perPage: 2,
+      <client-only>
+        <Splide
+          :options="{
+            rewind: true,
+            perPage: 4,
+            breakpoints: {
+              640: {
+                perPage: 2,
+              },
             },
-          },
-          pagination: false,
-          arrows: true,
-          autoplay: true,
-          classes: {
-            arrows: 'arrows',
-          },
-        }"
-        class="px-md-16"
-      >
-        <SplideSlide v-for="(logo, index) in logos" :key="index">
-          <VCard flat class="px-9 py-4 ma-1" color="white">
-            {{ logo }}
-          </VCard>
-        </SplideSlide>
-      </Splide>
+            pagination: false,
+            arrows: true,
+            autoplay: true,
+            classes: {
+              arrows: 'arrows',
+            },
+          }"
+          class="px-md-16"
+        >
+          <SplideSlide v-for="(logo, index) in logos" :key="index">
+            <VCard flat class="px-9 py-4 ma-1" color="white">
+              {{ logo }}
+            </VCard>
+          </SplideSlide>
+        </Splide>
+      </client-only>
     </VContainer>
   </VContainer>
 </template>
