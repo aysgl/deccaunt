@@ -9,7 +9,7 @@
         </p>
       </VCol>
       <VCol cols="12">
-        <div v-for="s in services" :key="s.title">
+        <div v-for="s in services" :key="s.name">
           <VRow class="mb-4">
             <VCol cols="12" md="4">
               <VCard
@@ -18,7 +18,7 @@
                 class="rounded-lg text-center"
               >
                 <VImg
-                  :src="s.image"
+                  :src="s.image[0]"
                   class="align-center h-100"
                   gradient="to top, rgba(var(--v-theme-primary), .8), rgba(0, 0, 0, .6)"
                   cover
@@ -55,17 +55,14 @@ import SectionTitle from "@/components/common/SectionTitle.vue";
 import api from "@/stores/api";
 import { onMounted, ref } from "vue";
 
-const services = ref<{
-  title: string;
-  description: string;
-  image: string[];
-  tags: string[];
-}>({
-  title: "",
-  description: "",
-  image: [],
-  tags: [],
-});
+const services = ref<
+  Array<{
+    name: string;
+    description: string;
+    image: string[];
+    tags: string[];
+  }>
+>([]);
 const leading = ref<{ title: string; description: string }>({
   title: "",
   description: "",
