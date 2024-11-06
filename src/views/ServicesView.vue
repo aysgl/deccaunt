@@ -55,7 +55,17 @@ import SectionTitle from "@/components/common/SectionTitle.vue";
 import api from "@/stores/api";
 import { onMounted, ref } from "vue";
 
-const services = ref("");
+const services = ref<{
+  title: string;
+  description: string;
+  image: string[];
+  tags: string[];
+}>({
+  title: "",
+  description: "",
+  image: [],
+  tags: [],
+});
 const leading = ref<{ title: string; description: string }>({
   title: "",
   description: "",
