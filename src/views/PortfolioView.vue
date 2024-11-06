@@ -8,7 +8,10 @@ const tab = ref(null);
 const { t } = useI18n();
 
 const portfolios = ref([]);
-const leading = ref("");
+const leading = ref<{ title: string; description: string }>({
+  title: "",
+  description: "",
+});
 const tags = ref([]);
 const group = ref([]);
 

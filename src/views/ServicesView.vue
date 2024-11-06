@@ -56,52 +56,10 @@ import api from "@/stores/api";
 import { onMounted, ref } from "vue";
 
 const services = ref("");
-const leading = ref("");
-// const services = computed(() => [
-//   {
-//     title: t("services.services_1"),
-//     description: t("services.services_1_desc"),
-//     tags: [
-//       t("tags.landing_page"),
-//       t("tags.blog"),
-//       t("tags.ecommerce"),
-//       t("tags.business"),
-//     ],
-//     image:
-//       "https://images.pexels.com/photos/4981807/pexels-photo-4981807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-//   },
-//   {
-//     title: t("services.services_2"),
-//     description: t("services.services_2_desc"),
-//     tags: [t("tags.erp"), t("tags.hrm"), t("tags.pos")],
-//     image:
-//       "https://images.pexels.com/photos/3861973/pexels-photo-3861973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-//   },
-//   {
-//     title: t("services.services_3"),
-//     description: t("services.services_3_desc"),
-//     tags: [
-//       t("tags.landing_page"),
-//       t("tags.blog"),
-//       t("tags.ecommerce"),
-//       t("tags.business"),
-//     ],
-//     image:
-//       "https://images.pexels.com/photos/5717781/pexels-photo-5717781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-//   },
-//   {
-//     title: t("services.services_4"),
-//     description: t("services.services_4_desc"),
-//     tags: [
-//       t("tags.landing_page"),
-//       t("tags.erp"),
-//       t("tags.ecommerce"),
-//       t("tags.business"),
-//     ],
-//     image:
-//       "https://images.pexels.com/photos/5467594/pexels-photo-5467594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-//   },
-// ]);
+const leading = ref<{ title: string; description: string }>({
+  title: "",
+  description: "",
+});
 
 const fetchServices = async () => {
   try {

@@ -7,7 +7,10 @@ import api from "@/stores/api";
 
 const { t } = useI18n();
 const portfolios = ref();
-const leading = ref("");
+const leading = ref<{ title: string; description: string }>({
+  title: "",
+  description: "",
+});
 
 const fetchPortfolios = async () => {
   try {
