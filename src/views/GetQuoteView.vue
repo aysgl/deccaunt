@@ -5,7 +5,7 @@ import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const countryCode = ref("TR");
+const countryCode = ref("AZ");
 
 const data = ref({
   firstname: "",
@@ -110,7 +110,7 @@ const handleSubmit = () => {
                   variant="outlined"
                   color="primary"
                   v-model="data.message"
-                  :label="t('get_a_quote.message')"
+                  :label="t('get_a_quote.project')"
                   required
                   auto-grow
                   rows="4"

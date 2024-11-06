@@ -21,13 +21,13 @@
         "advantages": {
             "title": "Our Advantages",
             "advantage_1": "Honest communication",
-            "advantage_1_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_1_desc": "Openness and transparency in communication with customers are our standards.",
             "advantage_2": "Transparent prices",
-            "advantage_2_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_2_desc": "We offer honest and transparent pricing for every project.",
             "advantage_3": "Guaranteed delivery time",
-            "advantage_3_desc": "Our platform ensures that our messages are honest and transparent.",
+            "advantage_3_desc": "We strictly adhere to the agreed delivery date of the projects.",
             "advantage_4": "Professional experience",
-            "advantage_4_desc": "Our platform ensures that our messages are honest and transparent."
+            "advantage_4_desc": "Our team is professionals with vast experience."
         },
         "our_latest_work": "Our Latest Work",
         "more_work": "More Work",
@@ -72,7 +72,8 @@
         "title": "Works by Deccaount",
         "all": "All Jobs",
         "finished": "Finished",
-        "continue": "Continue"
+        "continue": "Continue",
+        "all_view": "All View"
     },
     "services": {
         "title": "Our Services",
@@ -102,7 +103,7 @@
         "email": "Email",
         "name": "Name",
         "surname": "Surname",
-        "message": "Message",
+        "project": "About Project",
         "send": "Send"
     },
     "tags": {

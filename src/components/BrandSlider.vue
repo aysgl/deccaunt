@@ -4,41 +4,59 @@
       class="bg-black rounded-lg position-absolute bottom-0 right-0 left-0 pa-1"
       max-width="788"
     >
-      <client-only>
-        <splide
-          :options="{
-            rewind: true,
-            perPage: 4,
-            breakpoints: {
-              640: {
-                perPage: 2,
-              },
+      <splide
+        :options="{
+          rewind: true,
+          perPage: 4,
+          breakpoints: {
+            640: {
+              perPage: 2,
             },
-            pagination: false,
-            arrows: true,
-            autoplay: true,
-            perMove: 1,
-            classes: {
-              arrows: 'arrows',
-            },
-          }"
-          class="px-md-16"
-        >
-          <splide-slide v-for="(logo, index) in logos" :key="index">
-            <VCard flat class="px-9 py-4 ma-1" color="white">
-              {{ logo }}
-            </VCard>
-          </splide-slide>
-        </splide>
-      </client-only>
+          },
+          pagination: false,
+          arrows: true,
+          autoplay: true,
+          perMove: 1,
+          classes: {
+            arrows: 'arrows',
+          },
+        }"
+        class="px-md-16"
+      >
+        <splide-slide v-for="(logo, index) in references" :key="index">
+          <VCard flat class="ma-1" color="white">
+            <VImg
+              height="60px"
+              cover
+              :src="`http://127.0.0.1:8080/uploads/${logo.fileName}`"
+            />
+          </VCard>
+        </splide-slide>
+      </splide>
     </VContainer>
   </VContainer>
 </template>
 
 <script setup lang="ts">
+import api from "@/stores/api";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import { onMounted, ref } from "vue";
 
-const logos = Array.from({ length: 20 }, (_, i) => `Logo ${i + 1}`);
+const references = ref([]);
+
+const fetchReferences = async () => {
+  try {
+    const response = await api.get("/api/references");
+    const data = response.data;
+    references.value = data.references;
+  } catch (error) {
+    console.error("Error fetching references:", error);
+  }
+};
+
+onMounted(() => {
+  fetchReferences();
+});
 </script>
 
 <style scoped lang="scss">

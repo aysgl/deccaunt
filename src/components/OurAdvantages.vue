@@ -1,38 +1,50 @@
 <script setup lang="ts">
-import {
-  IconPhone,
-  IconMapDollar,
-  IconSettings,
-  IconShieldHalfFilled,
-} from "@tabler/icons-vue";
 import SectionTitle from "./common/SectionTitle.vue";
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import api from "@/stores/api";
 
 const { t } = useI18n();
 
-const advanteges = ref([
-  {
-    title: t("home.advantages.advantage_1"),
-    description: t("home.advantages.advantage_1_desc"),
-    icons: IconPhone,
+const advanteges = ref([]);
+const splideOptions = computed(() => ({
+  rewind: true,
+  perPage: 4,
+  gap: "1.5rem",
+  breakpoints: {
+    992: {
+      perPage: 3,
+    },
+    640: {
+      perPage: 2,
+    },
+    430: {
+      perPage: 1,
+      destroy: true,
+    },
   },
-  {
-    title: t("home.advantages.advantage_2"),
-    description: t("home.advantages.advantage_2_desc"),
-    icons: IconMapDollar,
+  pagination: false,
+  arrows: advanteges.value.length > 4,
+  autoplay: true,
+  perMove: 1,
+  classes: {
+    arrows: "arrows",
   },
-  {
-    title: t("home.advantages.advantage_3"),
-    description: t("home.advantages.advantage_3_desc"),
-    icons: IconShieldHalfFilled,
-  },
-  {
-    title: t("home.advantages.advantage_4"),
-    description: t("home.advantages.advantage_4_desc"),
-    icons: IconSettings,
-  },
-]);
+}));
+
+const fetchAdvantages = async () => {
+  try {
+    const response = await api.get("/api/advantages");
+    const data = response.data;
+    advanteges.value = data.advantages;
+  } catch (error) {
+    console.error("Error fetching advanteges:", error);
+  }
+};
+
+onMounted(() => {
+  fetchAdvantages();
+});
 </script>
 
 <template>
@@ -42,22 +54,34 @@ const advanteges = ref([
       position="center"
       class="mb-8"
     />
-    <VRow>
-      <VCol cols="12" md="6" lg="3" v-for="a in advanteges" :key="a.title">
-        <VCard color="light" class="h-100 rounded-lg pa-6" flat>
+    <splide :options="splideOptions">
+      <splide-slide v-for="a in advanteges" :key="a.id">
+        <VCard color="light" class="h-100 rounded-lg pa-md-4 pa-0 mb-3" flat>
           <VCardText class="text-center">
-            <div class="d-flex justify-center mb-4">
-              <component
-                :is="a.icons"
-                color="rgb(var(--v-theme-primary))"
-                :size="60"
-              />
+            <div class="d-flex justify-center mb-md-4 mb-1">
+              <span v-html="a.icon" class="tabler"></span>
             </div>
             <h3>{{ a.title }}</h3>
             <p>{{ a.description }}</p>
           </VCardText>
         </VCard>
-      </VCol>
-    </VRow>
+      </splide-slide>
+    </splide>
   </VContainer>
 </template>
+
+<style lang="scss">
+.tabler {
+  svg {
+    width: 100%;
+    height: 60px;
+    color: rgb(var(--v-theme-primary));
+  }
+  @media screen and (max-width: 600px) {
+    svg {
+      width: 100%;
+      height: 40px;
+    }
+  }
+}
+</style>

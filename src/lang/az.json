@@ -72,7 +72,8 @@
         "title": "Deccaount-un işləri",
         "all": "Bütün işlər",
         "finished": "Bitmiş",
-        "continue": "Davam edən"
+        "continue": "Davam edən",
+        "all_view": "Bütün Baxışlar"
     },
     "services": {
         "title": "Xidmətlərimiz",
@@ -102,7 +103,7 @@
         "email": "E-poçt",
         "name": "Ad",
         "surname": "Soyad",
-        "message": "Mesaj",
+        "project": "Layihə Haqqında",
         "send": "Göndər"
     },
     "tags": {

@@ -1,52 +1,73 @@
 <template>
-  <v-carousel
-    class="rounded-lg"
-    show-arrows="hover"
-    cycle
-    hide-delimiter-background
-    hide-delimiters
-    :prev-icon="IconArrowLeft"
-    :next-icon="IconArrowRight"
+  <splide
+    :options="{
+      rewind: true,
+      perPage: 2,
+      breakpoints: {
+        640: {
+          perPage: 1,
+          destroy: true,
+        },
+      },
+      pagination: false,
+      arrows: true,
+      autoplay: true,
+      gap: 20,
+      perMove: 1,
+      classes: {
+        arrows: 'arrows',
+      },
+    }"
   >
-    <v-carousel-item v-for="(review, i) in reviews" :key="i">
-      <v-sheet height="100%" color="primary" class="pa-10">
-        <div class="d-flex fill-height justify-center align-center flex-column">
-          <v-avatar color="light" size="large" variant="tonal" class="mb-3">
-            <span>{{ review.name.slice(0, 1) }}</span>
-          </v-avatar>
-          <div class="text-h4 mb-4">{{ review.name }}</div>
-          <div class="text-h5 text-center" style="max-width: 600px">
-            {{ review.comment }}
+    <splide-slide v-for="(review, i) in reviews" :key="i">
+      <VCard
+        color="primary"
+        elevation="0"
+        class="d-flex justify-center align-center h-100 pa-md-14 pa-0 mb-3"
+      >
+        <VCardText class="text-md-start text-center">
+          <div class="w-100 text-md-end text-center mb-8">
+            <v-avatar color="light" size="large" variant="tonal" class="mb-3">
+              <span>{{ review.user }}</span>
+            </v-avatar>
           </div>
-          <div class="mt-4">Rating: {{ review.rating }}/5</div>
-        </div>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel>
+          <div class="body-text-2" style="opacity: 0.7">
+            {{ review.description }}
+          </div>
+          <div class="mt-4" style="opacity: 0.7">
+            Rating: {{ review.rating }}/5
+          </div>
+        </VCardText>
+      </VCard>
+    </splide-slide>
+  </splide>
 </template>
 
 <script setup lang="ts">
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
+import api from "@/stores/api";
+import { onMounted, ref, computed } from "vue";
 
-const { t } = useI18n();
+const reviews = ref([]);
 
-const reviews = ref([
-  {
-    name: t("about.review_1"),
-    comment: t("about.review_1_desc"),
-    rating: 5,
-  },
-  {
-    name: t("about.review_2"),
-    comment: t("about.review_2_desc"),
-    rating: 4,
-  },
-  {
-    name: t("about.review_3"),
-    comment: t("about.review_3_desc"),
-    rating: 3,
-  },
-]);
+const getReviews = async () => {
+  try {
+    const response = await api.get("/api/reviews");
+    const data = response.data;
+    reviews.value = data.reviews;
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+  }
+};
+
+// const groupedReviews = computed(() => {
+//   const pairs = [];
+//   for (let i = 0; i < reviews.value.length; i += 3) {
+//     pairs.push(reviews.value.slice(i, i + 3));
+//   }
+//   return pairs;
+// });
+
+onMounted(() => {
+  getReviews();
+});
 </script>

@@ -12,7 +12,7 @@
           <div
             class="slide h-75"
             v-for="(slide, index) in slides"
-            :key="index"
+            :key="slide.id"
             :class="{ 'is-active': currentSlide === index }"
           >
             <div class="slide__header text-center">
@@ -49,18 +49,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import api from "@/stores/api";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useI18n } from "vue-i18n";
+
 const { t } = useI18n();
 
-const slides = computed(() => [
-  {
-    title: t("home.slide_one.1"),
-    subtitle: t("home.slide_one.2"),
-  },
-  { title: t("home.slide_two.1"), subtitle: t("home.slide_two.2") },
-]);
-
+const slides = ref([]);
 const currentSlide = ref(0);
 const slideInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
@@ -81,7 +76,18 @@ const stopSlideShow = () => {
   }
 };
 
+const getSliders = async () => {
+  try {
+    const response = await api.get("/api/sliders");
+    const data = response.data;
+    slides.value = data.sliders;
+  } catch (error) {
+    console.error("Error fetching sliders:", error);
+  }
+};
+
 onMounted(() => {
+  getSliders();
   startSlideShow();
 });
 
@@ -107,12 +113,14 @@ $mq-xlarge: 91em;
     }
   }
 }
+
 .text-h1 {
   @media screen and (max-width: 992px) {
     font-size: 2.75rem !important;
     line-height: 3rem !important;
   }
 }
+
 .slide {
   z-index: -1;
   padding: 1rem;

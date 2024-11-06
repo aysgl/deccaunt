@@ -1,69 +1,53 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import SectionTitle from "./common/SectionTitle.vue";
 import { IconPlus, IconArrowUpRight } from "@tabler/icons-vue";
 import { useI18n } from "vue-i18n";
+import api from "@/stores/api";
 
 const { t } = useI18n();
+const portfolios = ref();
+const leading = ref("");
 
-const works = ref([
-  {
-    title: "Phoenix Polymer",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.ecommerce")],
-  },
-  {
-    title: "Shamkir Agro Logistics",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.corporate"), t("tags.business")],
-  },
-  {
-    title: "Reginal Group",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.corporate")],
-  },
-  {
-    title: "SamWood",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.corporate"), t("tags.business")],
-  },
-  {
-    title: "Victory",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.ecommerce")],
-  },
-  {
-    title: "iRobot",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.ecommerce")],
-  },
-  {
-    title: "Social Partner",
-    description: "E-commerce website built with Phoenix Polymer framework",
-    image: "https://placehold.co/600x400/012ead/e1e6f5",
-    tags: [t("tags.corporate")],
-  },
-]);
+const fetchPortfolios = async () => {
+  try {
+    const response = await api.get("/api/portfolio");
+    const data = response.data;
+    portfolios.value = data.portfolios;
+  } catch (error) {
+    console.error("Error fetching portfolios:", error);
+  }
+};
+const fetchLeading = async () => {
+  try {
+    const response = await api.get("/api/portfolio/leading");
+    const data = response.data;
+    leading.value = data.leading;
+  } catch (error) {
+    console.error("Error fetching portfolios:", error);
+  }
+};
+
+onMounted(() => {
+  fetchPortfolios();
+  fetchLeading();
+});
 </script>
 
 <template>
   <VContainer>
-    <SectionTitle
-      :title="t('home.our_latest_work')"
-      position="center"
-      class="mb-6"
-    />
+    <SectionTitle :title="leading?.title" position="center" class="mb-6" />
     <VRow>
-      <VCol cols="12" md="6" lg="3" v-for="w in works" :key="w.title">
+      <VCol
+        cols="6"
+        md="6"
+        lg="3"
+        v-for="w in portfolios?.slice(0, 7)"
+        :key="w.title"
+      >
         <VCard class="rounded-lg">
           <VImg :src="w.image" />
-          <VCardTitle class="pb-2">{{ w.title }}</VCardTitle>
+          <VCardTitle class="pb-2">{{ w.name }}</VCardTitle>
           <VCardText>
             <div class="d-flex flex-wrap ga-1">
               <VChip
@@ -78,8 +62,9 @@ const works = ref([
           </VCardText>
         </VCard>
       </VCol>
-      <VCol cols="12" lg="3" md="6">
+      <VCol cols="6" lg="3" md="6">
         <VBtn
+          to="/portfolio"
           size="lg"
           variant="tonal"
           color="primary"

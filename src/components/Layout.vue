@@ -10,7 +10,7 @@
     <Footer />
     <div class="position-relative">
       <VBtn
-        href="https://wa.me/+905393242038"
+        href="https://wa.me/+994505551438"
         target="_blank"
         color="success"
         class="position-fixed right-0 bottom-0 ma-4"

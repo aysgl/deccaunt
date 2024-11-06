@@ -5,7 +5,7 @@ import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const countryCode = ref("TR");
+const countryCode = ref("AZ");
 const address = ref([
   {
     title: t("contact.address"),

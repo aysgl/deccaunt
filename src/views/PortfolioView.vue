@@ -1,171 +1,110 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { IconMinus, IconPlus } from "@tabler/icons-vue";
+import { onMounted, ref, computed } from "vue";
 import SectionTitle from "@/components/common/SectionTitle.vue";
 import { useI18n } from "vue-i18n";
+import api from "@/stores/api";
 
 const tab = ref(null);
 const { t } = useI18n();
-const projects = ref([
-  {
-    id: 1,
-    name: t("portfolio.all"),
-    works: [
-      {
-        title: "Shamkir Agro Logistics",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate", "Business"],
-      },
-      {
-        title: "Reginal Group",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-      {
-        title: "SamWood",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate", "Business"],
-      },
-      {
-        title: "Victory",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "iRobot",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "Social Partner",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: t("portfolio.finished"),
-    works: [
-      {
-        title: "Reginal Group",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-      {
-        title: "SamWood",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate", "Business"],
-      },
-      {
-        title: "Victory",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "iRobot",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "Social Partner",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: t("portfolio.continue"),
-    works: [
-      {
-        title: "Phoenix Polymer",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Ecommerce"],
-      },
-      {
-        title: "Shamkir Agro Logistics",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate", "Business"],
-      },
-      {
-        title: "Reginal Group",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-      {
-        title: "SamWood",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate", "Business"],
-      },
-      {
-        title: "Victory",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "iRobot",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["E-commerce"],
-      },
-      {
-        title: "Social Partner",
-        description: "E-commerce website built with Phoenix Polymer framework",
-        image: "https://placehold.co/600x400/012ead/e1e6f5",
-        tags: ["Corporate"],
-      },
-    ],
-  },
-]);
+
+const portfolios = ref([]);
+const leading = ref("");
+const tags = ref([]);
+const group = ref([]);
+
+// Fetch data functions
+const fetchPortfolios = async () => {
+  try {
+    const response = await api.get("/api/portfolio");
+    portfolios.value = response.data.portfolios;
+  } catch (error) {
+    console.error("Error fetching portfolios:", error);
+  }
+};
+
+const fetchLeading = async () => {
+  try {
+    const response = await api.get("/api/portfolio/leading");
+    leading.value = response.data.leading;
+  } catch (error) {
+    console.error("Error fetching leading:", error);
+  }
+};
+
+const fetchTags = async () => {
+  try {
+    const response = await api.get("/api/portfolio/tags");
+    tags.value = response.data.tags;
+  } catch (error) {
+    console.error("Error fetching tags:", error);
+  }
+};
+
+const fetchGroup = async () => {
+  try {
+    const response = await api.get("/api/portfolio/group");
+    group.value = response.data.group;
+  } catch (error) {
+    console.error("Error fetching group:", error);
+  }
+};
+
+onMounted(() => {
+  fetchPortfolios();
+  fetchLeading();
+  fetchTags();
+  fetchGroup();
+});
+
+// Computed property to group portfolios by group name
+const groupedPortfolios = computed(() => {
+  const grouped = portfolios.value.reduce((acc, portfolio) => {
+    const group = portfolio.group;
+    if (!acc[group]) {
+      acc[group] = [];
+    }
+    acc[group].push(portfolio);
+    return acc;
+  }, {});
+  return grouped;
+});
 </script>
 
 <template>
   <VContainer class="pb-16">
-    <SectionTitle
-      :title="t('portfolio.title')"
-      class="mb-6"
-      position="center"
-    />
-
+    <SectionTitle :title="leading?.title" class="mb-6" position="center" />
+    <p class="text-h4 font-weight-light text-center mb-6">
+      {{ leading?.description }}
+    </p>
     <VTabs v-model="tab" align-tabs="center">
-      <VTab :value="t.id" v-for="t in projects" :key="t.id">
-        {{ t.name }}
+      <VTab
+        v-for="(items, groupName) in groupedPortfolios"
+        :key="groupName"
+        :value="groupName"
+      >
+        {{ groupName }}
       </VTab>
     </VTabs>
-
     <VTabsWindow v-model="tab" class="mt-4">
-      <VTabsWindowItem v-for="q in projects" :key="q.id" :value="q.id">
+      <VTabsWindowItem
+        v-for="(items, groupName) in groupedPortfolios"
+        :key="groupName"
+        :value="groupName"
+      >
         <VRow flat bg-color="light">
-          <VCol cols="12" md="6" lg="3" v-for="w in q.works" :key="w.title">
+          <VCol v-for="p in items" :key="p.id" cols="12" md="6" lg="3">
             <VCard flat color="light" class="rounded-lg">
-              <VImg :src="w.image" />
-              <VCardTitle class="pb-2">{{ w.title }}</VCardTitle>
+              <VImg :src="p.image" />
+              <VCardTitle class="pb-2">{{ p.name }}</VCardTitle>
               <VCardText>
-                <div class="d-flex flex-wrap ga-1">
+                <div class="d-flex flex-wrap gap-1">
                   <VChip
-                    v-for="t in w.tags"
-                    :key="t"
+                    v-for="tag in p.tags"
+                    :key="tag"
                     class="mb-1"
                     size="small"
                     color="primary"
-                    :text="t"
+                    :text="tag"
                   />
                 </div>
               </VCardText>
