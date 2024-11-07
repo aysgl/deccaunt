@@ -8,7 +8,7 @@
       <RouterView />
     </VMain>
     <Footer />
-    <div class="position-relative">
+    <div class="position-relative" style="z-index: 2">
       <VBtn
         href="https://wa.me/+994505551438"
         target="_blank"
@@ -16,6 +16,15 @@
         class="position-fixed right-0 bottom-0 ma-4"
         size="large"
         :icon="IconBrandWhatsapp"
+      ></VBtn>
+      <VBtn
+        href="/quote"
+        target="_blank"
+        color="primary"
+        class="position-fixed right-0 ma-4"
+        size="large"
+        style="bottom: 66px"
+        :icon="IconPhoneCall"
       ></VBtn>
     </div>
   </VApp>
@@ -28,7 +37,7 @@ import Footer from "./Footer.vue";
 import { computed } from "vue";
 import "maz-ui/styles";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { IconBrandWhatsapp } from "@tabler/icons-vue";
+import { IconBrandWhatsapp, IconPhoneCall } from "@tabler/icons-vue";
 
 const route = useRoute();
 

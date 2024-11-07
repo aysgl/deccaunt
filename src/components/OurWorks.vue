@@ -14,7 +14,7 @@ const leading = ref<{ title: string; description: string }>({
 
 const fetchPortfolios = async () => {
   try {
-    const response = await api.get("/api/portfolio");
+    const response = await api.get("/api/portfolios");
     const data = response.data;
     portfolios.value = data.portfolios;
   } catch (error) {
@@ -23,7 +23,7 @@ const fetchPortfolios = async () => {
 };
 const fetchLeading = async () => {
   try {
-    const response = await api.get("/api/portfolio/leading");
+    const response = await api.get("/api/portfolios/leading");
     const data = response.data;
     leading.value = data.leading;
   } catch (error) {
@@ -49,7 +49,13 @@ onMounted(() => {
         :key="w.title"
       >
         <VCard class="rounded-lg">
-          <VImg :src="w.image" />
+          <VResponsive :aspect-ratio="4 / 3">
+            <VImg
+              cover
+              class="h-100 w-100"
+              :src="`http://127.0.0.1:8080/uploads/${w.files[0].fileName}`"
+            />
+          </VResponsive>
           <VCardTitle class="pb-2">{{ w.name }}</VCardTitle>
           <VCardText>
             <div class="d-flex flex-wrap ga-1">

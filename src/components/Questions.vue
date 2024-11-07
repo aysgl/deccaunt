@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import SectionTitle from "./common/SectionTitle.vue";
 import {
   IconArrowLeft,
@@ -96,6 +96,12 @@ const fetchQuestions = async () => {
 
 onMounted(() => {
   fetchQuestions();
+});
+
+watch(questions, (newQuestions) => {
+  if (newQuestions.length > 0) {
+    tab.value = newQuestions[0].id;
+  }
 });
 </script>
 

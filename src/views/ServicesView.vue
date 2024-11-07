@@ -3,7 +3,7 @@
     <VRow class="d-flex align-center">
       <VCol cols="12" md="8" class="mx-auto mb-6">
         <SectionTitle :title="leading?.title" position="center" class="mb-4" />
-        {{}}
+
         <p class="text-h4 font-weight-light text-center">
           {{ leading?.description }}
         </p>
@@ -17,23 +17,25 @@
                 height="100%"
                 class="rounded-lg text-center"
               >
-                <VImg
-                  :src="s.image[0]"
-                  class="align-center h-100"
-                  gradient="to top, rgba(var(--v-theme-primary), .8), rgba(0, 0, 0, .6)"
-                  cover
-                >
-                  <h2 class="font-weight-bold text-h2">
-                    {{ s.name }}
-                  </h2>
-                  <VCardText>
-                    <div class="d-flex flex-wrap justify-center ga-2 mt-4">
-                      <VChip size="small" v-for="t in s.tags" :key="t">
-                        {{ t }}
-                      </VChip>
-                    </div>
-                  </VCardText>
-                </VImg>
+                <VResponsive :aspect-ratio="3 / 4">
+                  <VImg
+                    :src="`http://127.0.0.1:8080/uploads/${s.files[0].fileName}`"
+                    class="align-center h-100"
+                    gradient="to top, rgba(var(--v-theme-primary), .8), rgba(0, 0, 0, .6)"
+                    cover
+                  >
+                    <h2 class="font-weight-bold text-h2">
+                      {{ s.name }}
+                    </h2>
+                    <VCardText>
+                      <div class="d-flex flex-wrap justify-center ga-2 mt-4">
+                        <VChip size="small" v-for="t in s.tags" :key="t">
+                          {{ t }}
+                        </VChip>
+                      </div>
+                    </VCardText>
+                  </VImg>
+                </VResponsive>
               </VCard>
             </VCol>
             <VCol cols="12" md="8">
@@ -59,7 +61,7 @@ const services = ref<
   Array<{
     name: string;
     description: string;
-    image: string[];
+    files: string[];
     tags: string[];
   }>
 >([]);

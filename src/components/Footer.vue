@@ -1,7 +1,7 @@
 <template>
   <footer class="py-4">
     <VContainer>
-      <VRow>
+      <VRow v-for="c in contact" :key="c.id">
         <VCol cols="12" md="4" class="text-md-left text-center">
           <a href="/">
             <img
@@ -22,14 +22,17 @@
         <VCol cols="12" md="4" class="text-md-left text-center">
           <small class="mb-3">{{ t("footer.contact_us") }}</small>
           <div class="d-flex flex-column">
-            <a class="text-primary text-decoration-none" href="tel:0502534647"
-              >050 253 46 47
+            <a
+              class="text-primary text-decoration-none"
+              :href="`tel:${c.phone}`"
+            >
+              {{ c.phone }}
             </a>
             <a
               class="text-primary text-decoration-none"
-              href="mailto:info@deccaount.az"
+              :href="`mailto:${c.email}`"
             >
-              info@deccaount.az
+              {{ c.email }}
             </a>
           </div>
         </VCol>
@@ -42,7 +45,7 @@
           <RouterLink to="/quote">
             <VBtn
               :prepend-icon="IconSend"
-              :text="t('footer.write_to_us')"
+              :text="t('footer.get_a_quote')"
               class="rounded-xl"
             />
           </RouterLink>
@@ -55,7 +58,7 @@
           <small class="mb-3">{{ t("footer.follow_us") }}</small>
           <div class="d-flex justify-md-start justify-center ga-1">
             <VBtn
-              href="https://www.instagram.com"
+              :href="c.instagram"
               target="_blank"
               size="small"
               :icon="IconBrandInstagram"
@@ -63,14 +66,14 @@
               rel="noopener noreferrer"
             />
             <VBtn
-              href="https://www.facebook.com"
+              :href="c.facebook"
               target="_blank"
               size="small"
               :icon="IconBrandFacebook"
               variant="elevated"
             />
             <VBtn
-              href="https://www.linkedin.com"
+              :href="c.linkedin"
               target="_blank"
               size="small"
               :icon="IconBrandLinkedin"
@@ -89,13 +92,14 @@
 </template>
 
 <script setup lang="ts">
+import api from "@/stores/api";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconSend,
 } from "@tabler/icons-vue";
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -108,4 +112,20 @@ const menu = computed(() => [
   { name: t("sidebar.service"), path: "/services" },
   { name: t("sidebar.contact"), path: "/contact" },
 ]);
+
+const contact = ref(null);
+
+const fetchContact = async () => {
+  try {
+    const response = await api.get("/api/contact");
+    const data = response.data;
+    contact.value = data.contact;
+  } catch (error) {
+    console.error("Error fetching contact:", error);
+  }
+};
+
+onMounted(() => {
+  fetchContact();
+});
 </script>

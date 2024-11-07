@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import SectionTitle from "@/components/common/SectionTitle.vue";
 import ConfirmDialog from "@/components/common/ConfirmDialog.vue";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import api from "@/stores/api";
 
 const { t } = useI18n();
 const countryCode = ref("AZ");
@@ -25,6 +26,7 @@ const data = ref({
 });
 const errors = ref("");
 const showDialog = ref(false);
+const contact = ref(null);
 
 const isEmailValid = (email: string) => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,6 +51,20 @@ const handleSubmit = () => {
     errors.value = "Please correct the errors in the form.";
   }
 };
+
+const fetchContact = async () => {
+  try {
+    const response = await api.get("/api/contact");
+    const data = response.data;
+    contact.value = data.contact;
+  } catch (error) {
+    console.error("Error fetching contact:", error);
+  }
+};
+
+onMounted(() => {
+  fetchContact();
+});
 </script>
 
 <template>
@@ -56,22 +72,27 @@ const handleSubmit = () => {
     <SectionTitle :title="t('contact.title')" class="mb-6" position="center" />
     <VRow>
       <VCol cols="12" md="4">
-        <v-list bg-color="light" lines="two" class="h-100 rounded-lg">
-          <v-list-item
-            v-for="n in address"
-            :key="n.title"
-            :title="n.title"
-            :subtitle="n.description"
-          />
+        <v-list
+          v-for="c in contact"
+          :key="c.id"
+          bg-color="light"
+          lines="two"
+          class="h-100 rounded-lg"
+        >
           <v-list-item>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12048.055045373894!2d29.12743295!3d40.981179499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2str!4v1729709350083!5m2!1sen!2str"
-              width="100%"
-              height="150"
-              style="border: 0; border-radius: 12px"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <small class="d-flex">Address</small>
+            {{ c.address }}
+          </v-list-item>
+          <v-list-item>
+            <small class="d-flex">Phone</small>
+            {{ c.phone }}
+          </v-list-item>
+          <v-list-item>
+            <small class="d-flex">Email</small>
+            {{ c.email }}
+          </v-list-item>
+          <v-list-item>
+            <div style="height: 200px" v-html="c.maps"></div>
           </v-list-item>
         </v-list>
       </VCol>

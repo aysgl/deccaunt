@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed, watch } from "vue";
 import SectionTitle from "@/components/common/SectionTitle.vue";
 import { useI18n } from "vue-i18n";
 import api from "@/stores/api";
 
 const tab = ref(null);
-const { t } = useI18n();
 
 const portfolios = ref([]);
 const leading = ref<{ title: string; description: string }>({
@@ -13,12 +12,11 @@ const leading = ref<{ title: string; description: string }>({
   description: "",
 });
 const tags = ref([]);
-const group = ref([]);
 
 // Fetch data functions
 const fetchPortfolios = async () => {
   try {
-    const response = await api.get("/api/portfolio");
+    const response = await api.get("/api/portfolios");
     portfolios.value = response.data.portfolios;
   } catch (error) {
     console.error("Error fetching portfolios:", error);
@@ -27,7 +25,7 @@ const fetchPortfolios = async () => {
 
 const fetchLeading = async () => {
   try {
-    const response = await api.get("/api/portfolio/leading");
+    const response = await api.get("/api/portfolios/leading");
     leading.value = response.data.leading;
   } catch (error) {
     console.error("Error fetching leading:", error);
@@ -36,19 +34,10 @@ const fetchLeading = async () => {
 
 const fetchTags = async () => {
   try {
-    const response = await api.get("/api/portfolio/tags");
+    const response = await api.get("/api/portfolios/tags");
     tags.value = response.data.tags;
   } catch (error) {
     console.error("Error fetching tags:", error);
-  }
-};
-
-const fetchGroup = async () => {
-  try {
-    const response = await api.get("/api/portfolio/group");
-    group.value = response.data.group;
-  } catch (error) {
-    console.error("Error fetching group:", error);
   }
 };
 
@@ -56,7 +45,6 @@ onMounted(() => {
   fetchPortfolios();
   fetchLeading();
   fetchTags();
-  fetchGroup();
 });
 
 // Computed property to group portfolios by group name
@@ -70,6 +58,12 @@ const groupedPortfolios = computed(() => {
     return acc;
   }, {});
   return grouped;
+});
+
+watch(groupedPortfolios, (newGroups) => {
+  if (!tab.value && Object.keys(newGroups).length > 0) {
+    tab.value = Object.keys(newGroups)[0]; // Set to the first group name
+  }
 });
 </script>
 
@@ -97,7 +91,13 @@ const groupedPortfolios = computed(() => {
         <VRow flat bg-color="light">
           <VCol v-for="p in items" :key="p.id" cols="12" md="6" lg="3">
             <VCard flat color="light" class="rounded-lg">
-              <VImg :src="p.image" />
+              <VResponsive :aspect-ratio="4 / 3">
+                <VImg
+                  cover
+                  class="h-100 w-100"
+                  :src="`http://127.0.0.1:8080/uploads/${p.files[0].fileName}`"
+                />
+              </VResponsive>
               <VCardTitle class="pb-2">{{ p.name }}</VCardTitle>
               <VCardText>
                 <div class="d-flex flex-wrap gap-1">
