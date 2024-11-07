@@ -19,7 +19,7 @@
               >
                 <VResponsive :aspect-ratio="3 / 4">
                   <VImg
-                    :src="`http://127.0.0.1:8080/uploads/${s.files[0].fileName}`"
+                    :src="`http://127.0.0.1:8080/uploads/${s.files[0]?.fileName}`"
                     class="align-center h-100"
                     gradient="to top, rgba(var(--v-theme-primary), .8), rgba(0, 0, 0, .6)"
                     cover
@@ -61,7 +61,7 @@ const services = ref<
   Array<{
     name: string;
     description: string;
-    files: string[];
+    files: Array<{ fileName: string }>;
     tags: string[];
   }>
 >([]);
